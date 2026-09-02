@@ -1,0 +1,12 @@
+disable_ray: false
+max_tokens: 4096
+models:
+- meta-llama/Llama-2-7b-hf
+num_gpus: 2
+num_tensor_parallel_workers:
+- 1
+- 2
+- 4
+- 8
+output_dir: data/mlp/2026-09-02_18-40-07
+profile_method: record_function
