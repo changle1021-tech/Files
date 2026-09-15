@@ -1,0 +1,26 @@
+WARNING 09-07 23:04:35 param_counter.py:77] Config file /home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/utils/../../data/hf_configs/qwen3-next-80B-A3B_config.json not found, using default config
+INFO 09-07 23:04:35 param_counter.py:243] --------[ParamCounter] Qwen3-Next-80B Model Weights---------
+Traceback (most recent call last):
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/run_corrected.py", line 49, in <module>
+    runpy.run_module('vidur.main',run_name='__main__')
+  File "/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/runpy.py", line 227, in run_module
+    return _run_code(code, {}, init_globals, run_name, mod_spec)
+  File "/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/main.py", line 16, in <module>
+    main()
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/main.py", line 11, in main
+    simulator = Simulator(config)
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/simulator.py", line 44, in __init__
+    self._metric_store = MetricsStore(self._config)
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/metrics/metrics_store.py", line 202, in __init__
+    self._mfu_calculator = MFUCalculator(
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/utils/mfu_calculator.py", line 39, in __init__
+    params_result = param_counter.get_num_parameters_per_device()
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/utils/param_counter.py", line 319, in get_num_parameters_per_device
+    params_per_layer, prefill_params_per_layer, decode_params_per_layer = self.get_num_parameters_per_layer_by_layer_id(layer_id)
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/utils/param_counter.py", line 244, in get_num_parameters_per_layer_by_layer_id
+    full_attn_params_bytes = self.get_attn_params_size(self._model_config, self.use_fp8)
+  File "/home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/vidur/utils/param_counter.py", line 472, in get_attn_params_size
+    if config.attn_type == "MHA/GQA":  # MHA or GQA attention type
+AttributeError: 'Qwen3Next80BA3BModelConfig' object has no attribute 'attn_type'

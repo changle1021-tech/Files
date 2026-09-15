@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/turbo_ops/changle/SimAI/aicb/workload_generator/Vidur_workload_generator.py", line 232, in <module>
+    import workload_generator.mocked_model.inference.AiobQwen3Next as AiobQwen3Next
+  File "/home/turbo_ops/changle/SimAI/aicb/workload_generator/mocked_model/inference/AiobQwen3Next.py", line 6, in <module>
+    from utils.deepgemm_utils import *
+  File "/home/turbo_ops/changle/SimAI/aicb/utils/deepgemm_utils.py", line 3, in <module>
+    import deep_gemm
+  File "/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/deep_gemm/__init__.py", line 15, in <module>
+    import deep_gemm_cpp
+ImportError: /home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/deep_gemm_cpp.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationESs

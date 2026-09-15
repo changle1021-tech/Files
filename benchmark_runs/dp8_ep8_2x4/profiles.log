@@ -1,0 +1,57 @@
+INFO 09-14 00:25:59 [__init__.py:216] Automatically detected platform cuda.
+W0914 00:26:02.513000 1077324 site-packages/torch/utils/cpp_extension.py:2425] TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+W0914 00:26:02.513000 1077324 site-packages/torch/utils/cpp_extension.py:2425] If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'] to specific architectures.
+WARNING 09-14 00:26:03 [__init__.py:755] Current vLLM config is not set.
+INFO 09-14 00:26:04 [deep_gemm.py:59] DeepGEMM E8M0 disabled on current configuration.
+Warning: please use at least NVCC 12.9 for the best DeepGEMM performance
+{'atten_norm': [{'time_gpu': 88.281}], 'atten_qkv': [{'time_gpu': 491.061}], 'atten_rotary_emb': [{'time_gpu': 190.42}], 'atten_flash': [{'time_gpu': 24.424}], 'atten_o': [{'time_gpu': 194.855}], 'gdn_qkv': [{'time_gpu': 51.891999999999996}], 'gdn_causal_conv': [{'time_gpu': 1502.0}], 'gdn_core': [{'time_gpu': 44.156}], 'gdn_o': [{'time_gpu': 325.137}], 'moe_norm': [{'time_gpu': 110.114}], 'moe_route_gate': [{'time_gpu': 0.0}], 'moe_route_select_experts': [{'time_gpu': 45.585}], 'moe_expert_up': [{'time_gpu': 583.129}], 'moe_expert_act': [{'time_gpu': 310.386}], 'moe_expert_down': [{'time_gpu': 354.34}]}
+output stats successfully
+Compute-results save in:./results/aiob_outputs/Qwen3-Next-80B-world_size8-tp1-pp1-ep8-bpg1-seq15360-prefill.txt
+compute_cache = {
+    'attention_norm' : 88281,
+    'attention_gdn' : 1923185,
+    'attention_layer' : 900760,
+    'moe_norm' : 110114,
+    'moe_route' : 45585,
+    'moe_expert' : 1247855,
+}
+workload save in : results/workload/vidur-Qwen3-Next-80B-world_size8-tp1-pp1-ep8-bs1-seq15360-prefill
+Finish Model initialization
+INFO 09-14 00:26:48 [__init__.py:216] Automatically detected platform cuda.
+W0914 00:26:51.290000 1090496 site-packages/torch/utils/cpp_extension.py:2425] TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+W0914 00:26:51.290000 1090496 site-packages/torch/utils/cpp_extension.py:2425] If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'] to specific architectures.
+WARNING 09-14 00:26:52 [__init__.py:755] Current vLLM config is not set.
+INFO 09-14 00:26:52 [deep_gemm.py:59] DeepGEMM E8M0 disabled on current configuration.
+Warning: please use at least NVCC 12.9 for the best DeepGEMM performance
+{'atten_norm': [{'time_gpu': 2.21}], 'atten_qkv': [{'time_gpu': 12.297999999999998}], 'atten_rotary_emb': [{'time_gpu': 4.364}], 'atten_flash': [{'time_gpu': 24.662}], 'atten_o': [{'time_gpu': 10.162}], 'gdn_qkv': [{'time_gpu': 9.074}], 'gdn_causal_conv': [{'time_gpu': 1.933}], 'gdn_core': [{'time_gpu': 7.36}], 'gdn_o': [{'time_gpu': 4.791999999999999}], 'moe_norm': [{'time_gpu': 2.55}], 'moe_route_gate': [{'time_gpu': 0.0}], 'moe_route_select_experts': [{'time_gpu': 4.874}], 'moe_expert_up': [{'time_gpu': 43.692}], 'moe_expert_act': [{'time_gpu': 0.0}], 'moe_expert_down': [{'time_gpu': 25.076}]}
+output stats successfully
+Compute-results save in:./results/aiob_outputs/Qwen3-Next-80B-world_size8-tp1-pp1-ep8-bpg1-seq15360-decode.txt
+compute_cache = {
+    'attention_norm' : 2210,
+    'attention_gdn' : 23159,
+    'attention_layer' : 51486,
+    'moe_norm' : 2550,
+    'moe_route' : 4874,
+    'moe_expert' : 68768,
+}
+workload save in : results/workload/vidur-Qwen3-Next-80B-world_size8-tp1-pp1-ep8-bs1-seq15360-decode
+Finish Model initialization
+INFO 09-14 00:27:14 [__init__.py:216] Automatically detected platform cuda.
+W0914 00:27:17.079000 1096034 site-packages/torch/utils/cpp_extension.py:2425] TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+W0914 00:27:17.079000 1096034 site-packages/torch/utils/cpp_extension.py:2425] If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'] to specific architectures.
+WARNING 09-14 00:27:17 [__init__.py:755] Current vLLM config is not set.
+INFO 09-14 00:27:18 [deep_gemm.py:59] DeepGEMM E8M0 disabled on current configuration.
+Warning: please use at least NVCC 12.9 for the best DeepGEMM performance
+{'atten_norm': [{'time_gpu': 2.199}], 'atten_qkv': [{'time_gpu': 12.283999999999997}], 'atten_rotary_emb': [{'time_gpu': 4.44}], 'atten_flash': [{'time_gpu': 24.576}], 'atten_o': [{'time_gpu': 10.124}], 'gdn_qkv': [{'time_gpu': 8.943999999999999}], 'gdn_causal_conv': [{'time_gpu': 1.9209999999999998}], 'gdn_core': [{'time_gpu': 7.271}], 'gdn_o': [{'time_gpu': 4.816000000000001}], 'moe_norm': [{'time_gpu': 2.563}], 'moe_route_gate': [{'time_gpu': 0.0}], 'moe_route_select_experts': [{'time_gpu': 4.866}], 'moe_expert_up': [{'time_gpu': 43.41899999999999}], 'moe_expert_act': [{'time_gpu': 0.0}], 'moe_expert_down': [{'time_gpu': 25.148}]}
+output stats successfully
+Compute-results save in:./results/aiob_outputs/Qwen3-Next-80B-world_size8-tp1-pp1-ep8-bpg1-seq15614-decode.txt
+compute_cache = {
+    'attention_norm' : 2199,
+    'attention_gdn' : 22952,
+    'attention_layer' : 51424,
+    'moe_norm' : 2563,
+    'moe_route' : 4866,
+    'moe_expert' : 68567,
+}
+workload save in : results/workload/vidur-Qwen3-Next-80B-world_size8-tp1-pp1-ep8-bs1-seq15614-decode
+Finish Model initialization

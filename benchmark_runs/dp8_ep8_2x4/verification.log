@@ -1,0 +1,7 @@
+PASS prefill EP=8 RDMA=400 Gbps: 1 GB transfer = 0.020000000 s
+PASS prefill EP=8 RDMA=200 Gbps: 1 GB transfer = 0.040000000 s
+PASS prefill EP=4 RDMA=400 Gbps: 1 GB transfer = 0.002222222 s
+PASS decode EP=8 RDMA=400 Gbps: 1 GB transfer = 0.020000000 s
+PASS decode EP=8 RDMA=200 Gbps: 1 GB transfer = 0.040000000 s
+PASS decode EP=4 RDMA=400 Gbps: 1 GB transfer = 0.002222222 s
+PASS: EP8 uses 400 Gbps inter-node in both phases; EP4 within-node uses 3600 Gbps NVLink.

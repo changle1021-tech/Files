@@ -1,0 +1,43 @@
+--- a/vidur/entities/execution_time.py
++++ b/vidur/entities/execution_time.py
+@@ -582,20 +582,26 @@
+         # +comm
+         # return layer_data.get('comp_time', 0.0)
+ 
+-        replica_stage = "prefill"  # NOTE: hardcoded prefill; decode uses different bandwidth
+-    
+-        # Convert unit from ns to s / 单侍从ns转换为s
+-        moe_comp_time = layer_data.get('comp_time', 0.0) * 1e-9 
+-        
+-        # Unit: Byte / 单位Byte
+-        moe_comm_size = layer_data.get('comm_size', 0.0) 
+-    
+-        if replica_stage == "prefill": # normal kernel
+-            # Convert Gbps to Byte/s / Gbps换算成 Byte/s
+-            cur_bw = self._replica_config.rdma_bandwidth * 1024 * 1024 * 1024 / 8 
+-        elif replica_stage == "decode": # low_latency kernel
+-            # Convert Gbps to Byte/s / Gbps换算成 Byte/s
+-            cur_bw = self._replica_config.nvlink_bandwidth * 1024 * 1024 * 1024 / 8 
++        # EP communication follows physical placement, independent of phase.
++        # PP=1 uses contiguous TP*DP expert ranks. For PP>1 conservatively
++        # use RDMA when the stage spans nodes.
++        ep = self._replica_config.expert_model_parallel_size
++        ws = self._replica_config.world_size
++        devices_per_node = self._replica_config.node_config.num_devices_per_node
++        pp = self._replica_config.num_pipeline_stages
++        intra_node = ws <= devices_per_node or (
++            pp == 1 and ep <= devices_per_node and devices_per_node % ep == 0
++        )
++        bandwidth_gbps = (
++            self._replica_config.nvlink_bandwidth if intra_node
++            else self._replica_config.rdma_bandwidth
++        )
++        if bandwidth_gbps <= 0:
++            raise ValueError("AICB communication bandwidth must be positive")
++        # SI units: 400 Gbps = 50,000,000,000 bytes/second.
++        cur_bw = bandwidth_gbps * 1e9 / 8
++        moe_comp_time = layer_data.get('comp_time', 0.0) * 1e-9
++        moe_comm_size = layer_data.get('comm_size', 0.0) if ep > 1 else 0.0
+         moe_comm_time = moe_comm_size / cur_bw # 秒
+         moe_time = moe_comp_time + moe_comm_time
+         return moe_time if moe_time > 0 else 1e-6

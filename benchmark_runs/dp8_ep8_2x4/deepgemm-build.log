@@ -1,0 +1,11 @@
+Processing /home/turbo_ops/changle/SimAI/DeepGEMM
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: deep_gemm
+  Building wheel for deep_gemm (pyproject.toml): started
+  Building wheel for deep_gemm (pyproject.toml): finished with status 'done'
+  Created wheel for deep_gemm: filename=deep_gemm-2.1.1-cp310-cp310-linux_x86_64.whl size=4038486 sha256=c82f3027ffca35dbe2ca14daaa712fdf3954087739d133d55c029e6690b62a41
+  Stored in directory: /tmp/pip-ephem-wheel-cache-c4v3nvh9/wheels/67/0a/f1/d91b57948faedbaa0af0de3ede9b1047cacc30837bb7a0cc2a
+Successfully built deep_gemm
+Installing collected packages: deep_gemm
+Successfully installed deep_gemm-2.1.1

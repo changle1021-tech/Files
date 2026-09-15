@@ -1,0 +1,1 @@
+[2026-09-07 23:04:33] AICBGlobalCache 初始化完成, 缓存目录: /home/turbo_ops/changle/SimAI/benchmark_runs/qwen3next_bf16_20260907/vidur-alibabacloud/data/aicb_workload/cache

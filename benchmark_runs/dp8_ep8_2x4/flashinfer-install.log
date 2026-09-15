@@ -1,0 +1,19 @@
+Collecting flashinfer-python==0.3.1
+  Downloading flashinfer_python-0.3.1.tar.gz (3.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 2.2 MB/s  0:00:01
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: flashinfer-python
+  Building wheel for flashinfer-python (pyproject.toml): started
+  Building wheel for flashinfer-python (pyproject.toml): finished with status 'done'
+  Created wheel for flashinfer-python: filename=flashinfer_python-0.3.1-py3-none-any.whl size=5680405 sha256=657d5ec582baef521acd554303da142a378eb688f8b1bacb6f7ac63e2e4d5ba7
+  Stored in directory: /home/turbo_ops/.cache/pip/wheels/93/94/fa/93ca82e01c0da9c64f02ec2ec4123c11220104ff60a4357be3
+Successfully built flashinfer-python
+Installing collected packages: flashinfer-python
+Successfully installed flashinfer-python-0.3.1

@@ -1,0 +1,1137 @@
+/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/wheel/bdist_wheel.py:4: FutureWarning: The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command, and will be removed in a future release. Please update to setuptools v70.1 or later which contains an integrated version of this command.
+  warn(
+running build_ext
+building 'deep_gemm_cpp' extension
+g++ -pthread -B /home/turbo_ops/miniconda3/envs/sarathi/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/turbo_ops/miniconda3/envs/sarathi/include -fPIC -O2 -isystem /home/turbo_ops/miniconda3/envs/sarathi/include -fPIC -I/usr/include -I/usr/include/cccl -Ideep_gemm/include -Ithird-party/cutlass/include -Ithird-party/fmt/include -I/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include -I/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/turbo_ops/miniconda3/envs/sarathi/include/python3.10 -c csrc/python_api.cpp -o ../benchmark_runs/dp8_ep8_2x4/build-temp/csrc/python_api.o -std=c++17 -O3 -fPIC -Wno-psabi -Wno-deprecated-declarations -D_GLIBCXX_USE_CXX11_ABI=1
+In file included from csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/cache.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:16,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp:74:28: error: ‘CUlaunchConfig’ does not name a type
+   74 | using LaunchConfigHandle = CUlaunchConfig;
+      |                            ^~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp:75:26: error: ‘CUlaunchAttribute’ does not name a type; did you mean ‘cudaFuncAttribute’?
+   75 | using LaunchAttrHandle = CUlaunchAttribute;
+      |                          ^~~~~~~~~~~~~~~~~
+      |                          cudaFuncAttribute
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp:96:8: error: ‘LaunchConfigHandle’ does not name a type
+   96 | static LaunchConfigHandle construct_launch_config(const KernelHandle& kernel,
+      |        ^~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp:128:61: error: ‘LaunchConfigHandle’ does not name a type
+  128 | static auto launch_kernel(const KernelHandle& kernel, const LaunchConfigHandle& config, ActTypes&&... args) {
+      |                                                             ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/cache.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:16,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In static member function ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&)’:
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:23: error: there are no arguments to ‘construct_launch_config’ that depend on a template parameter, so a declaration of ‘construct_launch_config’ must be available [-fpermissive]
+  105 |         auto config = construct_launch_config(kernel, stream, launch_args.smem_size,
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:23: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+In file included from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:10,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/../heuristics/sm90.hpp: In static member function ‘static int deep_gemm::SM90ArchSpec::get_tensormap_smem_size(const deep_gemm::GemmType&)’:
+csrc/apis/../jit_kernels/impls/../heuristics/sm90.hpp:143:88: error: ‘CUtensorMap’ was not declared in this scope
+  143 |         return gemm_type == GemmType::KGroupedContiguous ? 4 * static_cast<int>(sizeof(CUtensorMap)) : 0;
+      |                                                                                        ^~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:11,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp:56:8: error: ‘CUtensorMapDataType’ does not name a type
+   56 | static CUtensorMapDataType aten_dtype_to_tensor_map_dtype(const at::ScalarType& dtype,
+      |        ^~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp:70:8: error: ‘CUtensorMapSwizzle’ does not name a type
+   70 | static CUtensorMapSwizzle mode_into_tensor_map_swizzle(const int& mode, const int& base) {
+      |        ^~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp:89:8: error: ‘CUtensorMap’ does not name a type
+   89 | static CUtensorMap make_tma_2d_desc(const torch::Tensor& t,
+      |        ^~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:11,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp:117:8: error: ‘CUtensorMap’ does not name a type
+  117 | static CUtensorMap make_tma_3d_desc(const torch::Tensor& t,
+      |        ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp:145:8: error: ‘CUtensorMap’ does not name a type
+  145 | static CUtensorMap make_tma_a_desc(const cute::UMMA::Major& major,
+      |        ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp:165:8: error: ‘CUtensorMap’ does not name a type
+  165 | static CUtensorMap make_tma_b_desc(const cute::UMMA::Major& major,
+      |        ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp:185:8: error: ‘CUtensorMap’ does not name a type
+  185 | static CUtensorMap make_tma_cd_desc(const torch::Tensor& t,
+      |        ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/runtime_utils.hpp:202:8: error: ‘CUtensorMap’ does not name a type
+  202 | static CUtensorMap make_tma_sf_desc(const cute::UMMA::Major& major,
+      |        ^~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:28:9: error: ‘CUtensorMap’ does not name a type
+   28 |         CUtensorMap tensor_map_a_base;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:29:9: error: ‘CUtensorMap’ does not name a type
+   29 |         CUtensorMap tensor_map_b_base;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:30:9: error: ‘CUtensorMap’ does not name a type
+   30 |         CUtensorMap tensor_map_sfa;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:31:9: error: ‘CUtensorMap’ does not name a type
+   31 |         CUtensorMap tensor_map_sfb;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:32:9: error: ‘CUtensorMap’ does not name a type
+   32 |         CUtensorMap tensor_map_d;
+      |         ^~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:64:63: error: ‘LaunchConfigHandle’ does not name a type
+   64 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp: In static member function ‘static void deep_gemm::SM90FP8Gemm1D1DRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM90FP8Gemm1D1DRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:70:18: error: ‘struct deep_gemm::SM90FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_a_base’
+   70 |             args.tensor_map_a_base, args.tensor_map_b_base,
+      |                  ^~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:65:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   65 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:70:42: error: ‘struct deep_gemm::SM90FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_b_base’; did you mean ‘tensor_map_buffer’?
+   70 |             args.tensor_map_a_base, args.tensor_map_b_base,
+      |                                          ^~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:65:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   65 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:71:18: error: ‘struct deep_gemm::SM90FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_sfa’; did you mean ‘tensor_map_buffer’?
+   71 |             args.tensor_map_sfa, args.tensor_map_sfb,
+      |                  ^~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:65:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   65 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:71:39: error: ‘struct deep_gemm::SM90FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_sfb’; did you mean ‘tensor_map_buffer’?
+   71 |             args.tensor_map_sfa, args.tensor_map_sfb,
+      |                                       ^~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:65:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   65 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:72:18: error: ‘struct deep_gemm::SM90FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_d’; did you mean ‘tensor_map_buffer’?
+   72 |             args.tensor_map_d));
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:65:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   65 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp: In function ‘void deep_gemm::sm90_fp8_gemm_1d1d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const std::optional<at::Tensor>&, const at::Tensor&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:96:32: error: ‘make_tma_a_desc’ was not declared in this scope
+   96 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:100:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  100 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:104:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  104 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:108:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  108 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:132:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90FP8Gemm1D1DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  132 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp: In function ‘void deep_gemm::sm90_fp8_k_grouped_gemm_1d1d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const std::optional<at::Tensor>&, const at::Tensor&, const int&, const int&, const std::vector<int>&, const at::Tensor&, const at::Tensor&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:171:37: error: ‘make_tma_a_desc’ was not declared in this scope
+  171 |     const auto& tensor_map_a_base = make_tma_a_desc(major_a, a, m, first_k,
+      |                                     ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:175:37: error: ‘make_tma_b_desc’ was not declared in this scope
+  175 |     const auto& tensor_map_b_base = make_tma_b_desc(major_b, b, n, first_k,
+      |                                     ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:179:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  179 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, sum_sf_k * 128,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:183:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  183 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:207:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90FP8Gemm1D1DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  207 |     };
+      |     ^
+In file included from csrc/apis/attention.hpp:4,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:28:9: error: ‘CUtensorMap’ does not name a type
+   28 |         CUtensorMap tensor_map_a;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:29:9: error: ‘CUtensorMap’ does not name a type
+   29 |         CUtensorMap tensor_map_b;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:30:9: error: ‘CUtensorMap’ does not name a type
+   30 |         CUtensorMap tensor_map_d;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:31:9: error: ‘CUtensorMap’ does not name a type
+   31 |         CUtensorMap tensor_map_sfa;
+      |         ^~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:4,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:65:63: error: ‘LaunchConfigHandle’ does not name a type
+   65 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp: In static member function ‘static void deep_gemm::SM90FP8Gemm1D2DRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM90FP8Gemm1D2DRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:70:18: error: ‘struct deep_gemm::SM90FP8Gemm1D2DRuntime::Args’ has no member named ‘tensor_map_a’
+   70 |             args.tensor_map_a, args.tensor_map_b,
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:67:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   67 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:70:37: error: ‘struct deep_gemm::SM90FP8Gemm1D2DRuntime::Args’ has no member named ‘tensor_map_b’
+   70 |             args.tensor_map_a, args.tensor_map_b,
+      |                                     ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:67:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   67 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:71:18: error: ‘struct deep_gemm::SM90FP8Gemm1D2DRuntime::Args’ has no member named ‘tensor_map_d’
+   71 |             args.tensor_map_d, args.tensor_map_sfa));
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:67:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   67 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:71:37: error: ‘struct deep_gemm::SM90FP8Gemm1D2DRuntime::Args’ has no member named ‘tensor_map_sfa’
+   71 |             args.tensor_map_d, args.tensor_map_sfa));
+      |                                     ^~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:67:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   67 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:4,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp: In function ‘void deep_gemm::sm90_fp8_gemm_1d2d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const std::optional<at::Tensor>&, const at::Tensor&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&, const std::optional<std::__cxx11::basic_string<char> >&)’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:96:32: error: ‘make_tma_a_desc’ was not declared in this scope
+   96 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:101:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  101 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:106:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  106 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, static_cast<int>(d.size(-1)),
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:111:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  111 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:130:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90FP8Gemm1D2DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  130 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp: In function ‘void deep_gemm::sm90_m_grouped_fp8_gemm_contiguous_1d2d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:156:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  156 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:161:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  161 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:166:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  166 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:171:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  171 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:190:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90FP8Gemm1D2DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  190 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp: In function ‘void deep_gemm::sm90_m_grouped_fp8_gemm_masked_1d2d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:217:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  217 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:222:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  222 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:227:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  227 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:232:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  232 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:251:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90FP8Gemm1D2DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  251 |     };
+      |     ^
+In file included from csrc/apis/attention.hpp:5,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:29:9: error: ‘CUtensorMap’ does not name a type
+   29 |         CUtensorMap tensor_map_a;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:30:9: error: ‘CUtensorMap’ does not name a type
+   30 |         CUtensorMap tensor_map_b;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:31:9: error: ‘CUtensorMap’ does not name a type
+   31 |         CUtensorMap tensor_map_sfa;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:32:9: error: ‘CUtensorMap’ does not name a type
+   32 |         CUtensorMap tensor_map_sfb;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:33:9: error: ‘CUtensorMap’ does not name a type
+   33 |         CUtensorMap tensor_map_c;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:34:9: error: ‘CUtensorMap’ does not name a type
+   34 |         CUtensorMap tensor_map_d;
+      |         ^~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:5,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:72:63: error: ‘LaunchConfigHandle’ does not name a type
+   72 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp: In static member function ‘static void deep_gemm::SM100FP8Gemm1D1DRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM100FP8Gemm1D1DRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:76:18: error: ‘struct deep_gemm::SM100FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_a’
+   76 |             args.tensor_map_a, args.tensor_map_b,
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:74:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   74 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:76:37: error: ‘struct deep_gemm::SM100FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_b’
+   76 |             args.tensor_map_a, args.tensor_map_b,
+      |                                     ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:74:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   74 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:77:18: error: ‘struct deep_gemm::SM100FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_sfa’
+   77 |             args.tensor_map_sfa, args.tensor_map_sfb,
+      |                  ^~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:74:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   74 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:77:39: error: ‘struct deep_gemm::SM100FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_sfb’
+   77 |             args.tensor_map_sfa, args.tensor_map_sfb,
+      |                                       ^~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:74:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   74 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:78:18: error: ‘struct deep_gemm::SM100FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_c’
+   78 |             args.tensor_map_c, args.tensor_map_d));
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:74:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   74 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:78:37: error: ‘struct deep_gemm::SM100FP8Gemm1D1DRuntime::Args’ has no member named ‘tensor_map_d’
+   78 |             args.tensor_map_c, args.tensor_map_d));
+      |                                     ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:74:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   74 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:5,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp: In function ‘void deep_gemm::sm100_fp8_gemm_1d1d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const std::optional<at::Tensor>&, const at::Tensor&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&, const std::optional<std::__cxx11::basic_string<char> >&)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:98:32: error: ‘make_tma_a_desc’ was not declared in this scope
+   98 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:103:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  103 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:108:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  108 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, static_cast<int>(d.size(-1)),
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:118:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  118 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:150:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100FP8Gemm1D1DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  150 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp: In function ‘void deep_gemm::sm100_m_grouped_fp8_gemm_contiguous_1d1d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:171:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  171 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:176:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  176 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:181:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  181 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:186:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  186 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:208:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100FP8Gemm1D1DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  208 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp: In function ‘void deep_gemm::sm100_m_grouped_fp8_gemm_masked_1d1d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:230:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  230 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:235:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  235 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:240:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  240 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:245:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  245 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:267:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100FP8Gemm1D1DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  267 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp: In function ‘void deep_gemm::fp8_k_grouped_gemm_1d1d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const std::optional<at::Tensor>&, const at::Tensor&, const int&, const int&, const std::vector<int>&, const at::Tensor&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:300:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  300 |     const auto& tensor_map_a = make_tma_a_desc(cute::UMMA::Major::MN, a, m, sum_k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:305:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  305 |     const auto& tensor_map_b = make_tma_b_desc(cute::UMMA::Major::MN, b, n, sum_k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:310:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  310 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:320:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  320 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, sum_sf_k * 512,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:348:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100FP8Gemm1D1DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  348 |     };
+      |     ^
+In file included from csrc/apis/attention.hpp:6,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:27:9: error: ‘CUtensorMap’ does not name a type
+   27 |         CUtensorMap tensor_map_a;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:28:9: error: ‘CUtensorMap’ does not name a type
+   28 |         CUtensorMap tensor_map_b;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:29:9: error: ‘CUtensorMap’ does not name a type
+   29 |         CUtensorMap tensor_map_d;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:30:9: error: ‘CUtensorMap’ does not name a type
+   30 |         CUtensorMap tensor_map_sfa;
+      |         ^~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:6,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:68:63: error: ‘LaunchConfigHandle’ does not name a type
+   68 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp: In static member function ‘static void deep_gemm::SM100FP8Gemm1D2DRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM100FP8Gemm1D2DRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:73:18: error: ‘struct deep_gemm::SM100FP8Gemm1D2DRuntime::Args’ has no member named ‘tensor_map_a’
+   73 |             args.tensor_map_a, args.tensor_map_b,
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:70:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   70 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:73:37: error: ‘struct deep_gemm::SM100FP8Gemm1D2DRuntime::Args’ has no member named ‘tensor_map_b’
+   73 |             args.tensor_map_a, args.tensor_map_b,
+      |                                     ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:70:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   70 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:74:18: error: ‘struct deep_gemm::SM100FP8Gemm1D2DRuntime::Args’ has no member named ‘tensor_map_d’
+   74 |             args.tensor_map_d, args.tensor_map_sfa));
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:70:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   70 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:74:37: error: ‘struct deep_gemm::SM100FP8Gemm1D2DRuntime::Args’ has no member named ‘tensor_map_sfa’
+   74 |             args.tensor_map_d, args.tensor_map_sfa));
+      |                                     ^~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:70:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   70 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:6,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp: In function ‘void deep_gemm::sm100_fp8_gemm_1d2d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const std::optional<at::Tensor>&, const at::Tensor&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&, const std::optional<std::__cxx11::basic_string<char> >&)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:95:32: error: ‘make_tma_a_desc’ was not declared in this scope
+   95 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:100:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  100 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:105:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  105 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, static_cast<int>(d.size(-1)),
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:110:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  110 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:129:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100FP8Gemm1D2DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  129 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp: In function ‘void deep_gemm::sm100_m_grouped_fp8_gemm_contiguous_1d2d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:149:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  149 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:154:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  154 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:159:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  159 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:164:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  164 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:183:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100FP8Gemm1D2DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  183 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp: In function ‘void deep_gemm::sm100_m_grouped_fp8_gemm_masked_1d2d(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:204:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  204 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:209:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  209 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:214:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  214 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:219:34: error: ‘make_tma_sf_desc’ was not declared in this scope
+  219 |     const auto& tensor_map_sfa = make_tma_sf_desc(cute::UMMA::Major::MN, sfa, m, k,
+      |                                  ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:238:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100FP8Gemm1D2DRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  238 |     };
+      |     ^
+In file included from csrc/apis/attention.hpp:7,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:30:9: error: ‘CUtensorMap’ does not name a type
+   30 |         CUtensorMap tensor_map_q;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:31:9: error: ‘CUtensorMap’ does not name a type
+   31 |         CUtensorMap tensor_map_kv;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:32:9: error: ‘CUtensorMap’ does not name a type
+   32 |         CUtensorMap tensor_map_kv_scales;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:33:9: error: ‘CUtensorMap’ does not name a type
+   33 |         CUtensorMap tensor_map_weights;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:67:63: error: ‘LaunchConfigHandle’ does not name a type
+   67 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp: In static member function ‘static void deep_gemm::SM90FP8MQALogitsRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM90FP8MQALogitsRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:72:18: error: ‘struct deep_gemm::SM90FP8MQALogitsRuntime::Args’ has no member named ‘tensor_map_q’
+   72 |             args.tensor_map_q, args.tensor_map_kv,
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:68:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   68 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:72:37: error: ‘struct deep_gemm::SM90FP8MQALogitsRuntime::Args’ has no member named ‘tensor_map_kv’
+   72 |             args.tensor_map_q, args.tensor_map_kv,
+      |                                     ^~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:68:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   68 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:73:18: error: ‘struct deep_gemm::SM90FP8MQALogitsRuntime::Args’ has no member named ‘tensor_map_kv_scales’
+   73 |             args.tensor_map_kv_scales, args.tensor_map_weights
+      |                  ^~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:68:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   68 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:73:45: error: ‘struct deep_gemm::SM90FP8MQALogitsRuntime::Args’ has no member named ‘tensor_map_weights’
+   73 |             args.tensor_map_kv_scales, args.tensor_map_weights
+      |                                             ^~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:68:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   68 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:7,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp: In function ‘void deep_gemm::smxx_fp8_mqa_logits(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const int&, const int&)’:
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:98:32: error: ‘make_tma_2d_desc’ was not declared in this scope
+   98 |     const auto& tensor_map_q = make_tma_2d_desc(q, head_dim, seq_len * num_heads,
+      |                                ^~~~~~~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:7,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:146:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90FP8MQALogitsRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  146 |     };
+      |     ^
+In file included from csrc/apis/attention.hpp:8,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:41:63: error: ‘LaunchConfigHandle’ does not name a type
+   41 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/cache.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:16,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp: In instantiation of ‘auto deep_gemm::launch_kernel(CUfunc_st* const&, const int&, ActTypes&& ...) [with ActTypes = {int&, int*&, int*&}; deep_gemm::KernelHandle = CUfunc_st*]’:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:42:9:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp:130:28: error: ‘cuLaunchKernelEx’ was not declared in this scope; did you mean ‘cuLaunchKernel’?
+  130 |     return cuLaunchKernelEx(&config, kernel, ptr_args, nullptr);
+      |            ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |            cuLaunchKernel
+In file included from csrc/apis/attention.hpp:8,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:98:9: error: ‘CUtensorMap’ does not name a type
+   98 |         CUtensorMap tensor_map_q;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:99:9: error: ‘CUtensorMap’ does not name a type
+   99 |         CUtensorMap tensor_map_kv;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:100:9: error: ‘CUtensorMap’ does not name a type
+  100 |         CUtensorMap tensor_map_kv_scales;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:101:9: error: ‘CUtensorMap’ does not name a type
+  101 |         CUtensorMap tensor_map_weights;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:137:63: error: ‘LaunchConfigHandle’ does not name a type
+  137 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp: In static member function ‘static void deep_gemm::SMXXFP8PagedMQALogitsRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SMXXFP8PagedMQALogitsRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:144:18: error: ‘struct deep_gemm::SMXXFP8PagedMQALogitsRuntime::Args’ has no member named ‘tensor_map_q’
+  144 |             args.tensor_map_q, args.tensor_map_kv,
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:138:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+  138 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:144:37: error: ‘struct deep_gemm::SMXXFP8PagedMQALogitsRuntime::Args’ has no member named ‘tensor_map_kv’
+  144 |             args.tensor_map_q, args.tensor_map_kv,
+      |                                     ^~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:138:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+  138 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:145:18: error: ‘struct deep_gemm::SMXXFP8PagedMQALogitsRuntime::Args’ has no member named ‘tensor_map_kv_scales’
+  145 |             args.tensor_map_kv_scales, args.tensor_map_weights
+      |                  ^~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:138:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+  138 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:145:45: error: ‘struct deep_gemm::SMXXFP8PagedMQALogitsRuntime::Args’ has no member named ‘tensor_map_weights’
+  145 |             args.tensor_map_kv_scales, args.tensor_map_weights
+      |                                             ^~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:138:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+  138 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:8,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp: In function ‘void deep_gemm::smxx_fp8_paged_mqa_logits(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&)’:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:175:32: error: ‘make_tma_2d_desc’ was not declared in this scope
+  175 |     const auto& tensor_map_q = make_tma_2d_desc(q, head_dim, batch_size * next_n * num_heads,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:177:33: error: ‘make_tma_3d_desc’ was not declared in this scope
+  177 |     const auto& tensor_map_kv = make_tma_3d_desc(kv_cache, head_dim, block_kv, num_kv_blocks,
+      |                                 ^~~~~~~~~~~~~~~~
+In file included from csrc/apis/attention.hpp:8,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:230:5: error: invalid initialization of reference of type ‘const deep_gemm::SMXXFP8PagedMQALogitsRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  230 |     };
+      |     ^
+In file included from csrc/apis/attention.hpp:9,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_clean_logits.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/smxx_clean_logits.hpp:42:63: error: ‘LaunchConfigHandle’ does not name a type
+   42 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/cache.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:16,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp: In instantiation of ‘auto deep_gemm::launch_kernel(CUfunc_st* const&, const int&, ActTypes&& ...) [with ActTypes = {int&, int&, long int, int*&, int*&, float*&}; deep_gemm::KernelHandle = CUfunc_st*]’:
+csrc/apis/../jit_kernels/impls/smxx_clean_logits.hpp:43:9:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp:130:28: error: ‘cuLaunchKernelEx’ was not declared in this scope; did you mean ‘cuLaunchKernel’?
+  130 |     return cuLaunchKernelEx(&config, kernel, ptr_args, nullptr);
+      |            ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |            cuLaunchKernel
+In file included from csrc/apis/layout.hpp:4,
+                 from csrc/apis/attention.hpp:11,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_layout.hpp:37:63: error: ‘LaunchConfigHandle’ does not name a type
+   37 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/cache.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:16,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp: In instantiation of ‘auto deep_gemm::launch_kernel(CUfunc_st* const&, const int&, ActTypes&& ...) [with ActTypes = {void*&, void*&, unsigned int}; deep_gemm::KernelHandle = CUfunc_st*]’:
+csrc/apis/../jit_kernels/impls/smxx_layout.hpp:38:9:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp:130:28: error: ‘cuLaunchKernelEx’ was not declared in this scope; did you mean ‘cuLaunchKernel’?
+  130 |     return cuLaunchKernelEx(&config, kernel, ptr_args, nullptr);
+      |            ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |            cuLaunchKernel
+In file included from csrc/apis/layout.hpp:4,
+                 from csrc/apis/attention.hpp:11,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_layout.hpp:66:63: error: ‘LaunchConfigHandle’ does not name a type
+   66 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/smxx_layout.hpp:95:63: error: ‘LaunchConfigHandle’ does not name a type
+   95 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/cache.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:16,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp: In instantiation of ‘auto deep_gemm::launch_kernel(CUfunc_st* const&, const int&, ActTypes&& ...) [with ActTypes = {void*&, void*&, void*&, int&, int&, int&}; deep_gemm::KernelHandle = CUfunc_st*]’:
+csrc/apis/../jit_kernels/impls/smxx_layout.hpp:96:9:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/handle.hpp:130:28: error: ‘cuLaunchKernelEx’ was not declared in this scope; did you mean ‘cuLaunchKernel’?
+  130 |     return cuLaunchKernelEx(&config, kernel, ptr_args, nullptr);
+      |            ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |            cuLaunchKernel
+In file included from csrc/apis/einsum.hpp:10,
+                 from csrc/python_api.cpp:5:
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:27:9: error: ‘CUtensorMap’ does not name a type
+   27 |         CUtensorMap tensor_map_a;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:28:9: error: ‘CUtensorMap’ does not name a type
+   28 |         CUtensorMap tensor_map_b;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:55:63: error: ‘LaunchConfigHandle’ does not name a type
+   55 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp: In static member function ‘static void deep_gemm::SM90BmkBnkMnRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM90BmkBnkMnRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:57:26: error: ‘struct deep_gemm::SM90BmkBnkMnRuntime::Args’ has no member named ‘tensor_map_a’
+   57 |             args.s, args.tensor_map_a, args.tensor_map_b, args.d));
+      |                          ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:56:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   56 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:57:45: error: ‘struct deep_gemm::SM90BmkBnkMnRuntime::Args’ has no member named ‘tensor_map_b’
+   57 |             args.s, args.tensor_map_a, args.tensor_map_b, args.d));
+      |                                             ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:56:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   56 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/einsum.hpp:10,
+                 from csrc/python_api.cpp:5:
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp: In function ‘void deep_gemm::sm90_bmn_bnk_mn_gemm(const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&)’:
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:111:32: error: ‘make_tma_2d_desc’ was not declared in this scope
+  111 |     const auto& tensor_map_a = make_tma_2d_desc(a, k, s * m, block_k, block_m, k, swizzle_ab_mode);
+      |                                ^~~~~~~~~~~~~~~~
+In file included from csrc/apis/einsum.hpp:10,
+                 from csrc/python_api.cpp:5:
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:125:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90BmkBnkMnRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  125 |     };
+      |     ^
+In file included from csrc/apis/einsum.hpp:11,
+                 from csrc/python_api.cpp:5:
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:28:9: error: ‘CUtensorMap’ does not name a type
+   28 |         CUtensorMap tensor_map_a;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:29:9: error: ‘CUtensorMap’ does not name a type
+   29 |         CUtensorMap tensor_map_b;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:30:9: error: ‘CUtensorMap’ does not name a type
+   30 |         CUtensorMap tensor_map_d;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:56:63: error: ‘LaunchConfigHandle’ does not name a type
+   56 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp: In static member function ‘static void deep_gemm::SM100BmkBnkMnRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM100BmkBnkMnRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:58:26: error: ‘struct deep_gemm::SM100BmkBnkMnRuntime::Args’ has no member named ‘tensor_map_a’
+   58 |             args.s, args.tensor_map_a, args.tensor_map_b, args.tensor_map_d));
+      |                          ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:57:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   57 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:58:45: error: ‘struct deep_gemm::SM100BmkBnkMnRuntime::Args’ has no member named ‘tensor_map_b’
+   58 |             args.s, args.tensor_map_a, args.tensor_map_b, args.tensor_map_d));
+      |                                             ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:57:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   57 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:58:64: error: ‘struct deep_gemm::SM100BmkBnkMnRuntime::Args’ has no member named ‘tensor_map_d’
+   58 |             args.s, args.tensor_map_a, args.tensor_map_b, args.tensor_map_d));
+      |                                                                ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:57:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   57 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/einsum.hpp:11,
+                 from csrc/python_api.cpp:5:
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp: In function ‘void deep_gemm::sm100_bmn_bnk_mn_gemm(const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&)’:
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:115:32: error: ‘make_tma_2d_desc’ was not declared in this scope
+  115 |     const auto& tensor_map_a = make_tma_2d_desc(a, k, s * m, block_k, block_m, k, swizzle_ab_mode);
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:131:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100BmkBnkMnRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  131 |     };
+      |     ^
+In file included from csrc/apis/../jit_kernels/impls/smxx_cublaslt.hpp:5,
+                 from csrc/apis/einsum.hpp:12,
+                 from csrc/python_api.cpp:5:
+/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/ATen/cuda/CUDADataType.h: In function ‘cudaDataType at::cuda::ScalarTypeToCudaDataType(const c10::ScalarType&)’:
+/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/ATen/cuda/CUDADataType.h:83:14: error: ‘CUDA_R_8F_E4M3’ was not declared in this scope
+   83 |       return CUDA_R_8F_E4M3;
+      |              ^~~~~~~~~~~~~~
+/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/ATen/cuda/CUDADataType.h:85:14: error: ‘CUDA_R_8F_E5M2’ was not declared in this scope
+   85 |       return CUDA_R_8F_E5M2;
+      |              ^~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/smxx_cublaslt.hpp: In function ‘void deep_gemm::call_cublaslt_api(const cublasOperation_t&, const cublasOperation_t&, cublasLtMatrixLayoutOpaque_t* const&, cublasLtMatrixLayoutOpaque_t* const&, cublasLtMatrixLayoutOpaque_t* const&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const bool&)’:
+csrc/apis/../jit_kernels/impls/smxx_cublaslt.hpp:46:64: error: ‘CUBLASLT_MATMUL_DESC_FAST_ACCUM’ was not declared in this scope; did you mean ‘CUBLASLT_MATMUL_DESC_TRANSC’?
+   46 |         DG_CUBLASLT_CHECK(cublasLtMatmulDescSetAttribute(desc, CUBLASLT_MATMUL_DESC_FAST_ACCUM, &fp8_fast_accumulate, sizeof(fp8_fast_accumulate)));
+      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:79:22: note: in definition of macro ‘DG_CUBLASLT_CHECK’
+   79 |     const auto& e = (cmd); \
+      |                      ^~~
+In file included from csrc/apis/gemm.hpp:5,
+                 from csrc/python_api.cpp:6:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:24:9: error: ‘CUtensorMap’ does not name a type
+   24 |         CUtensorMap tensor_map_a;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:25:9: error: ‘CUtensorMap’ does not name a type
+   25 |         CUtensorMap tensor_map_b;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:26:9: error: ‘CUtensorMap’ does not name a type
+   26 |         CUtensorMap tensor_map_d;
+      |         ^~~~~~~~~~~
+In file included from csrc/apis/gemm.hpp:5,
+                 from csrc/python_api.cpp:6:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:60:63: error: ‘LaunchConfigHandle’ does not name a type
+   60 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp: In static member function ‘static void deep_gemm::SM90BF16GemmRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM90BF16GemmRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:65:18: error: ‘struct deep_gemm::SM90BF16GemmRuntime::Args’ has no member named ‘tensor_map_a’
+   65 |             args.tensor_map_a, args.tensor_map_b,
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:62:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   62 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:65:37: error: ‘struct deep_gemm::SM90BF16GemmRuntime::Args’ has no member named ‘tensor_map_b’
+   65 |             args.tensor_map_a, args.tensor_map_b,
+      |                                     ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:62:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   62 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:66:18: error: ‘struct deep_gemm::SM90BF16GemmRuntime::Args’ has no member named ‘tensor_map_d’
+   66 |             args.tensor_map_d));
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:62:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   62 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/gemm.hpp:5,
+                 from csrc/python_api.cpp:6:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp: In function ‘void deep_gemm::sm90_bf16_gemm(const at::Tensor&, const at::Tensor&, const std::optional<at::Tensor>&, const at::Tensor&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:88:32: error: ‘make_tma_a_desc’ was not declared in this scope
+   88 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:93:32: error: ‘make_tma_b_desc’ was not declared in this scope
+   93 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:98:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+   98 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:117:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90BF16GemmRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  117 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp: In function ‘void deep_gemm::sm90_m_grouped_bf16_gemm_contiguous(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:141:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  141 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:146:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  146 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:151:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  151 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:170:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90BF16GemmRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  170 |     };
+      |     ^
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp: In function ‘void deep_gemm::sm90_bf16_m_grouped_gemm_masked(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const int&, const int&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:195:32: error: ‘make_tma_a_desc’ was not declared in this scope
+  195 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:200:32: error: ‘make_tma_b_desc’ was not declared in this scope
+  200 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:205:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  205 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:224:5: error: invalid initialization of reference of type ‘const deep_gemm::SM90BF16GemmRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  224 |     };
+      |     ^
+In file included from csrc/apis/gemm.hpp:8,
+                 from csrc/python_api.cpp:6:
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp: At global scope:
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:26:9: error: ‘CUtensorMap’ does not name a type
+   26 |         CUtensorMap tensor_map_a;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:27:9: error: ‘CUtensorMap’ does not name a type
+   27 |         CUtensorMap tensor_map_b;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:28:9: error: ‘CUtensorMap’ does not name a type
+   28 |         CUtensorMap tensor_map_c;
+      |         ^~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:29:9: error: ‘CUtensorMap’ does not name a type
+   29 |         CUtensorMap tensor_map_d;
+      |         ^~~~~~~~~~~
+In file included from csrc/apis/gemm.hpp:8,
+                 from csrc/python_api.cpp:6:
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:67:63: error: ‘LaunchConfigHandle’ does not name a type
+   67 |     static void launch_impl(const KernelHandle& kernel, const LaunchConfigHandle& config, Args args) {
+      |                                                               ^~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:11,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp: In static member function ‘static void deep_gemm::SM100BF16GemmRuntime::launch_impl(CUfunc_st* const&, const int&, deep_gemm::SM100BF16GemmRuntime::Args)’:
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:71:18: error: ‘struct deep_gemm::SM100BF16GemmRuntime::Args’ has no member named ‘tensor_map_a’
+   71 |             args.tensor_map_a, args.tensor_map_b,
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:69:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   69 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:71:37: error: ‘struct deep_gemm::SM100BF16GemmRuntime::Args’ has no member named ‘tensor_map_b’
+   71 |             args.tensor_map_a, args.tensor_map_b,
+      |                                     ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:69:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   69 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:72:18: error: ‘struct deep_gemm::SM100BF16GemmRuntime::Args’ has no member named ‘tensor_map_c’
+   72 |             args.tensor_map_c, args.tensor_map_d));
+      |                  ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:69:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   69 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:72:37: error: ‘struct deep_gemm::SM100BF16GemmRuntime::Args’ has no member named ‘tensor_map_d’
+   72 |             args.tensor_map_c, args.tensor_map_d));
+      |                                     ^~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/../utils/exception.hpp:53:22: note: in definition of macro ‘DG_CUDA_DRIVER_CHECK’
+   53 |     const auto& e = (cmd); \
+      |                      ^~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:69:9: note: in expansion of macro ‘DG_CUDA_UNIFIED_CHECK’
+   69 |         DG_CUDA_UNIFIED_CHECK(launch_kernel(kernel, config,
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from csrc/apis/gemm.hpp:8,
+                 from csrc/python_api.cpp:6:
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp: In function ‘void deep_gemm::sm100_bf16_gemm(const at::Tensor&, const at::Tensor&, const std::optional<at::Tensor>&, const at::Tensor&, const int&, const int&, const int&, const cute::UMMA::Major&, const cute::UMMA::Major&, const string&)’:
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:91:32: error: ‘make_tma_a_desc’ was not declared in this scope
+   91 |     const auto& tensor_map_a = make_tma_a_desc(major_a, a, m, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:96:32: error: ‘make_tma_b_desc’ was not declared in this scope
+   96 |     const auto& tensor_map_b = make_tma_b_desc(major_b, b, n, k,
+      |                                ^~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:101:32: error: ‘make_tma_cd_desc’ was not declared in this scope
+  101 |     const auto& tensor_map_d = make_tma_cd_desc(d, m, n,
+      |                                ^~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:136:5: error: invalid initialization of reference of type ‘const deep_gemm::SM100BF16GemmRuntime::Args&’ from expression of type ‘<brace-enclosed initializer list>’
+  136 |     };
+      |     ^
+In file included from csrc/python_api.cpp:6:
+csrc/apis/gemm.hpp: In function ‘void deep_gemm::gemm::k_grouped_fp8_gemm_nt_contiguous(const std::pair<at::Tensor, at::Tensor>&, const std::pair<at::Tensor, at::Tensor>&, const at::Tensor&, const std::vector<int>&, const at::Tensor&, const std::optional<at::Tensor>&, const std::tuple<int, int, int>&, const string&)’:
+csrc/apis/gemm.hpp:311:89: error: ‘CUtensorMap’ was not declared in this scope
+  311 |     const auto& tensor_map_buffer = torch::empty({num_sms * 4 * static_cast<int>(sizeof(CUtensorMap))},
+      |                                                                                         ^~~~~~~~~~~
+csrc/apis/gemm.hpp:311:49: error: no matching function for call to ‘empty(<brace-enclosed initializer list>, c10::TensorOptions)’
+  311 |     const auto& tensor_map_buffer = torch::empty({num_sms * 4 * static_cast<int>(sizeof(CUtensorMap))},
+      |                                     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  312 |                                                  a.first.options().dtype(torch::kByte));
+      |                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/api/include/torch/types.h:7,
+                 from /home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/api/include/torch/detail/static.h:4,
+                 from /home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/api/include/torch/python.h:3,
+                 from csrc/python_api.cpp:2:
+/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/autograd/generated/variable_factories.h:265:19: note: candidate: ‘at::Tensor torch::empty(at::IntArrayRef, std::optional<c10::ArrayRef<at::Dimname> >, c10::TensorOptions, std::optional<c10::MemoryFormat>)’
+  265 | inline at::Tensor empty(at::IntArrayRef size, ::std::optional<at::DimnameList> names, at::TensorOptions options = {}, ::std::optional<at::MemoryFormat> memory_format = ::std::nullopt) {
+      |                   ^~~~~
+/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/autograd/generated/variable_factories.h:265:41: note:   no known conversion for argument 1 from ‘<brace-enclosed initializer list>’ to ‘at::IntArrayRef’ {aka ‘c10::ArrayRef<long int>’}
+  265 | inline at::Tensor empty(at::IntArrayRef size, ::std::optional<at::DimnameList> names, at::TensorOptions options = {}, ::std::optional<at::MemoryFormat> memory_format = ::std::nullopt) {
+      |                         ~~~~~~~~~~~~~~~~^~~~
+/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/autograd/generated/variable_factories.h:269:19: note: candidate: ‘at::Tensor torch::empty(at::IntArrayRef, c10::TensorOptions, std::optional<c10::MemoryFormat>)’
+  269 | inline at::Tensor empty(at::IntArrayRef size, at::TensorOptions options = {}, ::std::optional<at::MemoryFormat> memory_format = ::std::nullopt) {
+      |                   ^~~~~
+/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/autograd/generated/variable_factories.h:269:41: note:   no known conversion for argument 1 from ‘<brace-enclosed initializer list>’ to ‘at::IntArrayRef’ {aka ‘c10::ArrayRef<long int>’}
+  269 | inline at::Tensor empty(at::IntArrayRef size, at::TensorOptions options = {}, ::std::optional<at::MemoryFormat> memory_format = ::std::nullopt) {
+      |                         ~~~~~~~~~~~~~~~~^~~~
+In file included from csrc/apis/../jit_kernels/impls/../../jit/cache.hpp:7,
+                 from csrc/apis/../jit_kernels/impls/../../jit/compiler.hpp:16,
+                 from csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:5,
+                 from csrc/apis/attention.hpp:3,
+                 from csrc/python_api.cpp:4:
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM90FP8Gemm1D1DRuntime::Args; Derived = deep_gemm::SM90FP8Gemm1D1DRuntime]’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d1d.hpp:136:35:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+  105 |         auto config = construct_launch_config(kernel, stream, launch_args.smem_size,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  106 |                                               grid_dim, block_dim, launch_args.cluster_dim);
+      |                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM90FP8Gemm1D2DRuntime::Args; Derived = deep_gemm::SM90FP8Gemm1D2DRuntime]’:
+csrc/apis/../jit_kernels/impls/sm90_fp8_gemm_1d2d.hpp:133:35:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM100FP8Gemm1D1DRuntime::Args; Derived = deep_gemm::SM100FP8Gemm1D1DRuntime]’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d1d.hpp:153:36:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM100FP8Gemm1D2DRuntime::Args; Derived = deep_gemm::SM100FP8Gemm1D2DRuntime]’:
+csrc/apis/../jit_kernels/impls/sm100_fp8_gemm_1d2d.hpp:132:36:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM90FP8MQALogitsRuntime::Args; Derived = deep_gemm::SM90FP8MQALogitsRuntime]’:
+csrc/apis/../jit_kernels/impls/smxx_fp8_mqa_logits.hpp:149:36:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SMXXPagedMQALogitsMetadataRuntime::Args; Derived = deep_gemm::SMXXPagedMQALogitsMetadataRuntime]’:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:75:46:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SMXXFP8PagedMQALogitsRuntime::Args; Derived = deep_gemm::SMXXFP8PagedMQALogitsRuntime]’:
+csrc/apis/../jit_kernels/impls/smxx_fp8_paged_mqa_logits.hpp:233:41:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SMXXCleanLogitsRuntime::Args; Derived = deep_gemm::SMXXCleanLogitsRuntime]’:
+csrc/apis/../jit_kernels/impls/smxx_clean_logits.hpp:76:35:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::TransposeFP32Runtime::Args; Derived = deep_gemm::TransposeFP32Runtime]’:
+csrc/apis/../jit_kernels/impls/smxx_layout.hpp:143:37:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::TransposeAndPackFP32IntoUE8M0Runtime::Args; Derived = deep_gemm::TransposeAndPackFP32IntoUE8M0Runtime]’:
+csrc/apis/../jit_kernels/impls/smxx_layout.hpp:197:53:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::PackFP32IntoUE8M0Runtime::Args; Derived = deep_gemm::PackFP32IntoUE8M0Runtime]’:
+csrc/apis/../jit_kernels/impls/smxx_layout.hpp:221:41:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM90BmkBnkMnRuntime::Args; Derived = deep_gemm::SM90BmkBnkMnRuntime]’:
+csrc/apis/../jit_kernels/impls/sm90_bmk_bnk_mn.hpp:128:32:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM100BmkBnkMnRuntime::Args; Derived = deep_gemm::SM100BmkBnkMnRuntime]’:
+csrc/apis/../jit_kernels/impls/sm100_bmk_bnk_mn.hpp:134:33:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM90BF16GemmRuntime::Args; Derived = deep_gemm::SM90BF16GemmRuntime]’:
+csrc/apis/../jit_kernels/impls/sm90_bf16_gemm.hpp:120:32:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp: In instantiation of ‘static void deep_gemm::LaunchRuntime<Derived>::launch(const std::shared_ptr<deep_gemm::KernelRuntime>&, const Args&) [with Args = deep_gemm::SM100BF16GemmRuntime::Args; Derived = deep_gemm::SM100BF16GemmRuntime]’:
+csrc/apis/../jit_kernels/impls/sm100_bf16_gemm.hpp:139:33:   required from here
+csrc/apis/../jit_kernels/impls/../../jit/kernel_runtime.hpp:105:46: error: ‘construct_launch_config’ was not declared in this scope
+error: Command '['g++', '-pthread', '-B', '/home/turbo_ops/miniconda3/envs/sarathi/compiler_compat', '-Wno-unused-result', '-Wsign-compare', '-DNDEBUG', '-fwrapv', '-O2', '-Wall', '-fPIC', '-O2', '-isystem', '/home/turbo_ops/miniconda3/envs/sarathi/include', '-fPIC', '-O2', '-isystem', '/home/turbo_ops/miniconda3/envs/sarathi/include', '-fPIC', '-I/usr/include', '-I/usr/include/cccl', '-Ideep_gemm/include', '-Ithird-party/cutlass/include', '-Ithird-party/fmt/include', '-I/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include', '-I/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/site-packages/torch/include/torch/csrc/api/include', '-I/home/turbo_ops/miniconda3/envs/sarathi/include/python3.10', '-c', 'csrc/python_api.cpp', '-o', '../benchmark_runs/dp8_ep8_2x4/build-temp/csrc/python_api.o', '-std=c++17', '-O3', '-fPIC', '-Wno-psabi', '-Wno-deprecated-declarations', '-D_GLIBCXX_USE_CXX11_ABI=1']' returned non-zero exit status 1.

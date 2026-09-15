@@ -1,0 +1,785 @@
+{
+  "vllm": "0.11.2",
+  "torch": "2.9.0+cu128",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "dtype": "bfloat16",
+  "seed": 42,
+  "profiles": {
+    "gdn-512-first": {
+      "median_ms": 0.20413220000000062,
+      "samples_ms": [
+        0.20418400000000064,
+        0.20413220000000062,
+        0.20404290000000086
+      ],
+      "profiled_wall_ms": [
+        1.9533111015334725,
+        1.8426747061312199,
+        1.8496743985451758
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "gdn-512-continuation": {
+      "median_ms": 0.20446530000000052,
+      "samples_ms": [
+        0.20446530000000052,
+        0.20450289999999588,
+        0.20427559999999864
+      ],
+      "profiled_wall_ms": [
+        2.0187258953228593,
+        1.980183506384492,
+        1.8427642993628979
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "moe-512-rank0": {
+      "median_ms": 0.39251099999999933,
+      "samples_ms": [
+        0.39270550000000065,
+        0.3921966999999996,
+        0.39251099999999933
+      ],
+      "profiled_wall_ms": [
+        0.9421708062291145,
+        0.9779305080883205,
+        0.9729524026624858
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "moe-512-rank1": {
+      "median_ms": 0.36096119999999965,
+      "samples_ms": [
+        0.36096119999999965,
+        0.3611816999999997,
+        0.36084979999999994
+      ],
+      "profiled_wall_ms": [
+        0.8051028940826654,
+        0.791675504297018,
+        0.8070220006629825
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "moe-512-rank2": {
+      "median_ms": 0.3645571000000001,
+      "samples_ms": [
+        0.3644778999999997,
+        0.36486579999999996,
+        0.3645571000000001
+      ],
+      "profiled_wall_ms": [
+        0.8049425086937845,
+        0.8061798056587577,
+        0.765574595425278
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "moe-512-rank3": {
+      "median_ms": 0.3670923999999999,
+      "samples_ms": [
+        0.3670923999999999,
+        0.3673833999999992,
+        0.36697409999999947
+      ],
+      "profiled_wall_ms": [
+        0.7986690034158528,
+        0.8086060988716781,
+        0.8072764961980283
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv512": {
+      "median_ms": 0.13348389999999993,
+      "samples_ms": [
+        0.1337566000000009,
+        0.13348389999999993,
+        0.13307100000000022
+      ],
+      "profiled_wall_ms": [
+        0.7340052048675716,
+        0.6650683935731649,
+        0.6449182983487844
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv1024": {
+      "median_ms": 0.13870090000000088,
+      "samples_ms": [
+        0.13870090000000088,
+        0.13860260000000044,
+        0.1388748999999997
+      ],
+      "profiled_wall_ms": [
+        0.6810900988057256,
+        0.6762558943592012,
+        0.6789829931221902
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv1536": {
+      "median_ms": 0.1436966999999995,
+      "samples_ms": [
+        0.14435210000000037,
+        0.1436966999999995,
+        0.14366870000000048
+      ],
+      "profiled_wall_ms": [
+        0.7456960040144622,
+        0.741249299608171,
+        0.7331802975386381
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv2048": {
+      "median_ms": 0.14849279999999992,
+      "samples_ms": [
+        0.1485083999999997,
+        0.14849279999999992,
+        0.14825059999999918
+      ],
+      "profiled_wall_ms": [
+        0.726533099077642,
+        0.7156181032769382,
+        0.701188191305846
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv2560": {
+      "median_ms": 0.15382920000000028,
+      "samples_ms": [
+        0.15389480000000025,
+        0.15365380000000098,
+        0.15382920000000028
+      ],
+      "profiled_wall_ms": [
+        0.6960519938729703,
+        0.6482206983491778,
+        0.6427992018871009
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv3072": {
+      "median_ms": 0.15911730000000007,
+      "samples_ms": [
+        0.15857600000000033,
+        0.15925389999999923,
+        0.15911730000000007
+      ],
+      "profiled_wall_ms": [
+        0.7531726034358144,
+        0.7254143012687564,
+        0.7162722060456872
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv3584": {
+      "median_ms": 0.16383700000000007,
+      "samples_ms": [
+        0.16461509999999932,
+        0.16383700000000007,
+        0.16332979999999922
+      ],
+      "profiled_wall_ms": [
+        0.7241297047585249,
+        0.7226392976008356,
+        0.7142018992453814
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv4096": {
+      "median_ms": 0.1691016000000002,
+      "samples_ms": [
+        0.1689664999999994,
+        0.1691016000000002,
+        0.1691993000000001
+      ],
+      "profiled_wall_ms": [
+        0.7425975985825062,
+        0.7421934045851231,
+        0.6820742040872574
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv4608": {
+      "median_ms": 0.17538939999999942,
+      "samples_ms": [
+        0.17538939999999942,
+        0.17544300000000052,
+        0.1751082000000002
+      ],
+      "profiled_wall_ms": [
+        0.7353110006079078,
+        0.7039073971100152,
+        0.7087831036187708
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv5120": {
+      "median_ms": 0.1807308000000005,
+      "samples_ms": [
+        0.1807308000000005,
+        0.18079419999999985,
+        0.18049020000000024
+      ],
+      "profiled_wall_ms": [
+        0.7498901919461787,
+        0.7386437966488302,
+        0.7339862990193069
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv5632": {
+      "median_ms": 0.18710520000000014,
+      "samples_ms": [
+        0.1867378999999998,
+        0.18710520000000014,
+        0.18732239999999978
+      ],
+      "profiled_wall_ms": [
+        0.7269452093169093,
+        0.7283338927663863,
+        0.724528799764812
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv6144": {
+      "median_ms": 0.19146959999999977,
+      "samples_ms": [
+        0.1914787000000002,
+        0.19146959999999977,
+        0.19105000000000077
+      ],
+      "profiled_wall_ms": [
+        0.7285295054316521,
+        0.7228518021292984,
+        0.7128050085157156
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv6656": {
+      "median_ms": 0.1972545000000001,
+      "samples_ms": [
+        0.1972545000000001,
+        0.19663409999999978,
+        0.19761040000000005
+      ],
+      "profiled_wall_ms": [
+        0.7008482934907079,
+        0.6963525083847344,
+        0.6930244038812816
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv7168": {
+      "median_ms": 0.2022370000000009,
+      "samples_ms": [
+        0.20139289999999965,
+        0.2022370000000009,
+        0.20254510000000026
+      ],
+      "profiled_wall_ms": [
+        0.7603885955177248,
+        0.7519671926274896,
+        0.7187827955931425
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv7680": {
+      "median_ms": 0.2069479999999994,
+      "samples_ms": [
+        0.2069479999999994,
+        0.2064683000000001,
+        0.20708950000000007
+      ],
+      "profiled_wall_ms": [
+        0.8361611049622297,
+        0.8265937096439302,
+        0.8008399978280067
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv8192": {
+      "median_ms": 0.21278889999999992,
+      "samples_ms": [
+        0.2117268999999994,
+        0.21278889999999992,
+        0.21332820000000008
+      ],
+      "profiled_wall_ms": [
+        0.7125767995603383,
+        0.7295518065802753,
+        0.7195562007836998
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv8704": {
+      "median_ms": 0.21733330000000023,
+      "samples_ms": [
+        0.2172491999999997,
+        0.2174077000000004,
+        0.21733330000000023
+      ],
+      "profiled_wall_ms": [
+        0.6935967016033828,
+        0.7072075037285686,
+        0.7061630021780729
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv9216": {
+      "median_ms": 0.2227566,
+      "samples_ms": [
+        0.22274659999999993,
+        0.2227566,
+        0.22311739999999952
+      ],
+      "profiled_wall_ms": [
+        0.676271109841764,
+        0.724942097440362,
+        0.6797358044423163
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv9728": {
+      "median_ms": 0.22802409999999984,
+      "samples_ms": [
+        0.22641670000000058,
+        0.22802409999999984,
+        0.2281104000000002
+      ],
+      "profiled_wall_ms": [
+        0.6733336951583624,
+        0.6698459968902171,
+        0.6694808951579034
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv10240": {
+      "median_ms": 0.23232229999999973,
+      "samples_ms": [
+        0.23210950000000027,
+        0.2325409999999996,
+        0.23232229999999973
+      ],
+      "profiled_wall_ms": [
+        0.8080277009867132,
+        0.7333085057325661,
+        0.7213403936475515
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv10752": {
+      "median_ms": 0.23783680000000004,
+      "samples_ms": [
+        0.23769670000000062,
+        0.23783680000000004,
+        0.2381065999999999
+      ],
+      "profiled_wall_ms": [
+        0.746828003320843,
+        0.7294047973118722,
+        0.7134526036679745
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv11264": {
+      "median_ms": 0.2428292999999997,
+      "samples_ms": [
+        0.24183849999999904,
+        0.2430187999999991,
+        0.2428292999999997
+      ],
+      "profiled_wall_ms": [
+        0.6878762971609831,
+        0.6703448016196489,
+        0.6541140028275549
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv11776": {
+      "median_ms": 0.24771349999999984,
+      "samples_ms": [
+        0.24727019999999986,
+        0.24771349999999984,
+        0.24817430000000035
+      ],
+      "profiled_wall_ms": [
+        0.7078432943671942,
+        0.6630241055972874,
+        0.6686588050797582
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv12288": {
+      "median_ms": 0.25219880000000083,
+      "samples_ms": [
+        0.2524261000000003,
+        0.25219880000000083,
+        0.25197219999999954
+      ],
+      "profiled_wall_ms": [
+        0.7371110026724637,
+        0.7335187983699143,
+        0.7184471935033798
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv12800": {
+      "median_ms": 0.2567371999999995,
+      "samples_ms": [
+        0.2567371999999995,
+        0.25677850000000046,
+        0.25655440000000085
+      ],
+      "profiled_wall_ms": [
+        0.7313280017115176,
+        0.7378511014394462,
+        0.6826385040767491
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv13312": {
+      "median_ms": 0.26259700000000086,
+      "samples_ms": [
+        0.26259700000000086,
+        0.2626445000000005,
+        0.2619499000000006
+      ],
+      "profiled_wall_ms": [
+        0.6962128914892673,
+        0.7190131000243127,
+        0.6887326017022133
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv13824": {
+      "median_ms": 0.26658330000000025,
+      "samples_ms": [
+        0.2679911000000008,
+        0.2663595000000002,
+        0.26658330000000025
+      ],
+      "profiled_wall_ms": [
+        0.670756702311337,
+        0.6799738039262593,
+        0.6683253101073205
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv14336": {
+      "median_ms": 0.27207709999999996,
+      "samples_ms": [
+        0.27207709999999996,
+        0.2723782000000001,
+        0.27191539999999975
+      ],
+      "profiled_wall_ms": [
+        0.7159541011787951,
+        0.7374732056632638,
+        0.7365122088231146
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv14848": {
+      "median_ms": 0.27647409999999983,
+      "samples_ms": [
+        0.27772659999999905,
+        0.2759953000000006,
+        0.27647409999999983
+      ],
+      "profiled_wall_ms": [
+        0.7468073046766222,
+        0.7370791980065405,
+        0.726440898142755
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv15360": {
+      "median_ms": 0.2826559999999997,
+      "samples_ms": [
+        0.2827890999999998,
+        0.2826559999999997,
+        0.28244759999999963
+      ],
+      "profiled_wall_ms": [
+        0.7317723007872701,
+        0.663467706181109,
+        0.6606791052035987
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv15872": {
+      "median_ms": 0.2869675000000002,
+      "samples_ms": [
+        0.28700549999999986,
+        0.2869675000000002,
+        0.2866495
+      ],
+      "profiled_wall_ms": [
+        0.7319260039366782,
+        0.717133900616318,
+        0.710744597017765
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-512-kv16384": {
+      "median_ms": 0.2920619,
+      "samples_ms": [
+        0.2920619,
+        0.29177190000000025,
+        0.2922545000000003
+      ],
+      "profiled_wall_ms": [
+        0.6828660028986633,
+        0.6877520005218685,
+        0.7117041037417948
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "gdn-1-first": {
+      "median_ms": 0.057765800000000575,
+      "samples_ms": [
+        0.057683900000000496,
+        0.05797640000000026,
+        0.057765800000000575
+      ],
+      "profiled_wall_ms": [
+        0.9305231971666217,
+        0.8965656044892967,
+        0.9966925950720906
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "moe-1-rank0": {
+      "median_ms": 0.06573479999999912,
+      "samples_ms": [
+        0.06558120000000053,
+        0.06576240000000007,
+        0.06573479999999912
+      ],
+      "profiled_wall_ms": [
+        0.8589577046222985,
+        0.8552520070225,
+        0.9149922989308834
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "moe-1-rank1": {
+      "median_ms": 0.040732299999999985,
+      "samples_ms": [
+        0.04074549999999984,
+        0.04067599999999995,
+        0.040732299999999985
+      ],
+      "profiled_wall_ms": [
+        0.6434664013795555,
+        0.7393567939288914,
+        0.7554248091764748
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "moe-1-rank2": {
+      "median_ms": 0.048237499999999545,
+      "samples_ms": [
+        0.04824979999999977,
+        0.048214399999999796,
+        0.048237499999999545
+      ],
+      "profiled_wall_ms": [
+        0.774491997435689,
+        0.7178845000453293,
+        0.7131233927793801
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "moe-1-rank3": {
+      "median_ms": 0.04050610000000011,
+      "samples_ms": [
+        0.04047020000000025,
+        0.04055739999999928,
+        0.04050610000000011
+      ],
+      "profiled_wall_ms": [
+        0.7128026918508112,
+        0.80029780510813,
+        0.8077492937445641
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv512": {
+      "median_ms": 0.062080000000000225,
+      "samples_ms": [
+        0.06213179999999957,
+        0.062080000000000225,
+        0.06206519999999991
+      ],
+      "profiled_wall_ms": [
+        0.7313598995096982,
+        0.7315699011087418,
+        0.7203856017440557
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv766": {
+      "median_ms": 0.06200769999999959,
+      "samples_ms": [
+        0.061986700000000186,
+        0.06200769999999959,
+        0.06208960000000021
+      ],
+      "profiled_wall_ms": [
+        0.7133379927836359,
+        0.7271206937730312,
+        0.7177146035246551
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv1024": {
+      "median_ms": 0.06215400000000039,
+      "samples_ms": [
+        0.062352899999999524,
+        0.06215400000000039,
+        0.06213759999999972
+      ],
+      "profiled_wall_ms": [
+        0.7013135007582605,
+        0.6595960934646428,
+        0.6545054027810693
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv1278": {
+      "median_ms": 0.06283480000000011,
+      "samples_ms": [
+        0.06277119999999978,
+        0.06298840000000025,
+        0.06283480000000011
+      ],
+      "profiled_wall_ms": [
+        0.6730157067067921,
+        0.660013104788959,
+        0.6582486093975604
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv2048": {
+      "median_ms": 0.06322919999999908,
+      "samples_ms": [
+        0.06322919999999908,
+        0.06327360000000035,
+        0.06304280000000044
+      ],
+      "profiled_wall_ms": [
+        0.7551474962383509,
+        0.684838299639523,
+        0.7020942983217537
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv2302": {
+      "median_ms": 0.06424709999999992,
+      "samples_ms": [
+        0.06443220000000018,
+        0.06411509999999919,
+        0.06424709999999992
+      ],
+      "profiled_wall_ms": [
+        0.692760304082185,
+        0.7301067933440208,
+        0.6958108977414668
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv4096": {
+      "median_ms": 0.06575390000000095,
+      "samples_ms": [
+        0.06583729999999907,
+        0.06575390000000095,
+        0.06572190000000021
+      ],
+      "profiled_wall_ms": [
+        0.6925098015926778,
+        0.6815612898208201,
+        0.7175639970228076
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv4350": {
+      "median_ms": 0.06610579999999966,
+      "samples_ms": [
+        0.06610579999999966,
+        0.06619519999999998,
+        0.06580890000000018
+      ],
+      "profiled_wall_ms": [
+        0.7197770988568664,
+        0.6587904063053429,
+        0.6638295948505402
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv8192": {
+      "median_ms": 0.06990699999999972,
+      "samples_ms": [
+        0.07004769999999987,
+        0.06990699999999972,
+        0.06983729999999988
+      ],
+      "profiled_wall_ms": [
+        0.7347022998146713,
+        0.7156640058383346,
+        0.6848460994660854
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv8446": {
+      "median_ms": 0.06965440000000075,
+      "samples_ms": [
+        0.06922349999999997,
+        0.07021399999999917,
+        0.06965440000000075
+      ],
+      "profiled_wall_ms": [
+        0.6741755059920251,
+        0.6589013035409153,
+        0.6789962993934751
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv16384": {
+      "median_ms": 0.07646929999999982,
+      "samples_ms": [
+        0.07649859999999939,
+        0.07589180000000004,
+        0.07646929999999982
+      ],
+      "profiled_wall_ms": [
+        0.7234446005895734,
+        0.7119234069250524,
+        0.7293413975276053
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    },
+    "attention-1-kv16638": {
+      "median_ms": 0.07661210000000038,
+      "samples_ms": [
+        0.07696579999999939,
+        0.07661210000000038,
+        0.0763016
+      ],
+      "profiled_wall_ms": [
+        0.7778604980558157,
+        0.6631370983086526,
+        0.7557490956969559
+      ],
+      "method": "sum of CUDA device events, 3 x 10 forwards; CPU gaps excluded"
+    }
+  },
+  "notes": [
+    "TP1 PP1 EP4; one active request",
+    "Synthetic weights; local experts measured per rank; maximum rank time used",
+    "GPU times exclude host scheduling and HTTP; communication modeled separately",
+    "Shared expert included on active rank; no overlap with routed expert in this profiler"
+  ]
+}

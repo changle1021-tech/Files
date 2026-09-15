@@ -1,0 +1,27 @@
+/home/sjp/miniconda3/envs/vllm011/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/sjp/miniconda3/envs/vllm011/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/sjp/miniconda3/envs/vllm011/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/sjp/miniconda3/envs/vllm011/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/sjp/miniconda3/envs/vllm011/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank [Gloo] Rank [Gloo] Rank 132 is connected to  is connected to  is connected to 333 peer ranks.  peer ranks.  peer ranks. Expected number of connected peer ranks is : Expected number of connected peer ranks is : Expected number of connected peer ranks is : 333
+
+
+WARNING 09-07 23:01:37 [vllm.py:1135] Current vLLM config is not set.
+WARNING 09-07 23:01:37 [vllm.py:1135] Current vLLM config is not set.
+WARNING 09-07 23:01:37 [vllm.py:1135] Current vLLM config is not set.
+WARNING 09-07 23:01:37 [vllm.py:1135] Current vLLM config is not set.
+INFO 09-07 23:01:37 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=2048.
+INFO 09-07 23:01:37 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=2048.
+INFO 09-07 23:01:37 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=2048.
+INFO 09-07 23:01:37 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=2048.
+INFO 09-07 23:01:37 [pynccl.py:111] vLLM is using nccl==2.27.5
+/home/sjp/miniconda3/envs/vllm011/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:4876: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  warnings.warn(  # warn only once
+[rank0]:[W907 23:01:38.155018246 ProcessGroupNCCL.cpp:5068] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+{"1": {"median_ms": 0.0732639953494072, "samples_ms": [0.08044160157442093, 0.0736595168709755, 0.07345984131097794, 0.07242623716592789, 0.0732639953494072, 0.07259199768304825, 0.0729670375585556], "sizes": [1, 0, 0, 0]}, "512": {"median_ms": 0.07578688114881516, "samples_ms": [0.07531328499317169, 0.12018880248069763, 0.07578688114881516, 0.12007167935371399, 0.07646720111370087, 0.0756928026676178, 0.0756998360157013], "sizes": [512, 0, 0, 0]}}

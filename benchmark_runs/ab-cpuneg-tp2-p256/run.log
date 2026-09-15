@@ -1,0 +1,34 @@
+INFO 09-15 01:02:28 sklearn_execution_time_predictor.py:241] Attention data filtering: original 43888 rows, filtered 10972 rows. Model config: n_embd=4096, n_q_head=32, n_kv_head=32, block_size=16, tp_workers=2
+INFO 09-15 01:02:28 sklearn_execution_time_predictor.py:241] Attention data filtering: original 43888 rows, filtered 10972 rows. Model config: n_embd=4096, n_q_head=32, n_kv_head=32, block_size=16, tp_workers=2
+INFO 09-15 01:02:29 simulator.py:68] Starting simulation with cluster: Cluster({'id': 0, 'num_replicas': 1}) and 1 requests
+Traceback (most recent call last):
+  File "/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/turbo_ops/miniconda3/envs/sarathi/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/main.py", line 16, in <module>
+    main()
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/main.py", line 12, in main
+    simulator.run()
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/simulator.py", line 96, in run
+    new_events = event.handle_event(self._scheduler, self._metric_store)
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/events/replica_stage_schedule_event.py", line 34, in handle_event
+    self._batch, self._batch_stage, execution_time = stage_scheduler.on_schedule()
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/scheduler/replica_stage_scheduler/replica_stage_schduler.py", line 57, in on_schedule
+    total_execution_time = execution_time.total_time
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/entities/execution_time.py", line 1343, in total_time
+    return self.model_time + self._get_cpu_overhead() * 1e-3
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/entities/execution_time.py", line 1325, in model_time
+    block_execution_time = self._get_block_execution_time()
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/entities/execution_time.py", line 1167, in _get_block_execution_time
+    self._get_attention_layer_execution_time()
+  File "/home/turbo_ops/changle/SimAI/vidur-alibabacloud/vidur/entities/execution_time.py", line 504, in _get_attention_layer_execution_time
+    assert             self._attention_layer_pre_proj_execution_time \
+AssertionError: Attention layer execution time must be positive
+> Debug: time=0.01020060287274801 Event 1 of type request_arrival Generates 1 GlobalScheduleEvent
+> Debug: time=0.01020060287274801 Generates 1 ReplicaScheduleEvents                 from event #2 global_schedule, replica_id=0
+> Debug: time=0.01020060287274801 Generates 1 BatchStageArrivalEvents             from event #3 replica_schedule 
+> Debug: time=0.01020060287274801 Event #4 of type batch_stage_arrival Generates 1 ReplicaStageScheduleEvent replica_id=0 stage_id=0
+INFO 09-15 01:02:29 simulator.py:121] Writing output
+INFO 09-15 01:02:29 simulator.py:124] Metrics written
+tp=2 p=256 rc=1
