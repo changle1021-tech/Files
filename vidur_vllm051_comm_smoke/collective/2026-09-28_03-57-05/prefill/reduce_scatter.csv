@@ -1,0 +1,2 @@
+,time_stats.reduce_scatter.min,time_stats.reduce_scatter.max,time_stats.reduce_scatter.mean,time_stats.reduce_scatter.median,time_stats.reduce_scatter.std,rank,num_workers,size,collective,devices_per_node,max_devices_per_node
+0,0.005,0.075,0.028333333333333335,0.005,0.03299831645537222,0,2,2048,reduce_scatter,2,4

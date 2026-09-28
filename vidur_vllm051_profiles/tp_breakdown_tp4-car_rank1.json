@@ -1,0 +1,287 @@
+{
+ "tag": "tp4-car",
+ "rank": 1,
+ "num_calls": 45,
+ "window": [
+  25,
+  45
+ ],
+ "window_wall_ms_mean": 9.468794005257744,
+ "all_calls_wall_ms": [
+  {
+   "idx": 1,
+   "wall_ms": 863.3853149414062
+  },
+  {
+   "idx": 2,
+   "wall_ms": 21.57302474975586
+  },
+  {
+   "idx": 3,
+   "wall_ms": 8.7774076461792
+  },
+  {
+   "idx": 4,
+   "wall_ms": 8.690272331237793
+  },
+  {
+   "idx": 5,
+   "wall_ms": 8.118783950805664
+  },
+  {
+   "idx": 6,
+   "wall_ms": 7.527584075927734
+  },
+  {
+   "idx": 7,
+   "wall_ms": 7.47983980178833
+  },
+  {
+   "idx": 8,
+   "wall_ms": 7.4661760330200195
+  },
+  {
+   "idx": 9,
+   "wall_ms": 7.193727970123291
+  },
+  {
+   "idx": 10,
+   "wall_ms": 8.272000312805176
+  },
+  {
+   "idx": 11,
+   "wall_ms": 8.617695808410645
+  },
+  {
+   "idx": 12,
+   "wall_ms": 7.196479797363281
+  },
+  {
+   "idx": 13,
+   "wall_ms": 7.461376190185547
+  },
+  {
+   "idx": 14,
+   "wall_ms": 7.1112961769104
+  },
+  {
+   "idx": 15,
+   "wall_ms": 7.299776077270508
+  },
+  {
+   "idx": 16,
+   "wall_ms": 6.764287948608398
+  },
+  {
+   "idx": 17,
+   "wall_ms": 7.725152015686035
+  },
+  {
+   "idx": 18,
+   "wall_ms": 8.17024040222168
+  },
+  {
+   "idx": 19,
+   "wall_ms": 8.147680282592773
+  },
+  {
+   "idx": 20,
+   "wall_ms": 7.661439895629883
+  },
+  {
+   "idx": 21,
+   "wall_ms": 7.575456142425537
+  },
+  {
+   "idx": 22,
+   "wall_ms": 7.626527786254883
+  },
+  {
+   "idx": 23,
+   "wall_ms": 7.801792144775391
+  },
+  {
+   "idx": 24,
+   "wall_ms": 7.7875518798828125
+  },
+  {
+   "idx": 25,
+   "wall_ms": 18.568288803100586
+  },
+  {
+   "idx": 26,
+   "wall_ms": 9.650815963745117
+  },
+  {
+   "idx": 27,
+   "wall_ms": 10.270367622375488
+  },
+  {
+   "idx": 28,
+   "wall_ms": 8.111712455749512
+  },
+  {
+   "idx": 29,
+   "wall_ms": 8.75391960144043
+  },
+  {
+   "idx": 30,
+   "wall_ms": 7.6262078285217285
+  },
+  {
+   "idx": 31,
+   "wall_ms": 7.618656158447266
+  },
+  {
+   "idx": 32,
+   "wall_ms": 10.518560409545898
+  },
+  {
+   "idx": 33,
+   "wall_ms": 8.603520393371582
+  },
+  {
+   "idx": 34,
+   "wall_ms": 7.287263870239258
+  },
+  {
+   "idx": 35,
+   "wall_ms": 8.308128356933594
+  },
+  {
+   "idx": 36,
+   "wall_ms": 7.213503837585449
+  },
+  {
+   "idx": 37,
+   "wall_ms": 7.99183988571167
+  },
+  {
+   "idx": 38,
+   "wall_ms": 12.500096321105957
+  },
+  {
+   "idx": 39,
+   "wall_ms": 9.200063705444336
+  },
+  {
+   "idx": 40,
+   "wall_ms": 8.855199813842773
+  },
+  {
+   "idx": 41,
+   "wall_ms": 8.97152042388916
+  },
+  {
+   "idx": 42,
+   "wall_ms": 9.174688339233398
+  },
+  {
+   "idx": 43,
+   "wall_ms": 10.140576362609863
+  },
+  {
+   "idx": 44,
+   "wall_ms": 9.610112190246582
+  },
+  {
+   "idx": 45,
+   "wall_ms": 9.86963176727295
+  }
+ ],
+ "device_total_us": 83758.0,
+ "nccl_total_us": 1536.0,
+ "nccl_kernel_count": 201,
+ "kernels": [
+  {
+   "name": "Memcpy DtoD (Device -> Device)",
+   "count": 105,
+   "total_us": 95.0
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<long>, at::detail::Array<char*, 1> >(int, at::native::FillFunctor<long>, at::detail::Array<char*, 1>)",
+   "count": 42,
+   "total_us": 2.0
+  },
+  {
+   "name": "fused_ge_lt___and____2266955281149801844",
+   "count": 21,
+   "total_us": 21.0
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bitwise_not_kernel_cuda(at::TensorIteratorBase&)::{lambda(bool)#1}, at::detail::Array<char*, 2> >(int, at::native::bitwise_not_kernel_cuda(at::TensorIteratorBase&)::{lambda(bool)#1}, at::detail::Array<char*, 2>)",
+   "count": 21,
+   "total_us": 21.0
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::indexSelectSmallIndex<c10::Half, long, unsigned int, 2, 2, -2>(at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<c10::Half const, unsigned int>, at::cuda::detail::TensorInfo<long const, unsigned int>, int, int, unsigned int, long)",
+   "count": 42,
+   "total_us": 63.0
+  },
+  {
+   "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(c10::Half, bool)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(c10::Half, bool)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(c10::Half, bool)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(c10::Half, bool)#1} const&)::{lambda(int)#1})",
+   "count": 21,
+   "total_us": 34.0
+  },
+  {
+   "name": "void vllm::cross_device_reduce_1stage<__half, 4>(vllm::RankData*, vllm::RankSignals, vllm::Signal volatile*, __half*, int, int)",
+   "count": 1365,
+   "total_us": 32064.0
+  },
+  {
+   "name": "void vllm::rms_norm_kernel<c10::Half>(c10::Half*, c10::Half const*, c10::Half const*, float, int, int)",
+   "count": 21,
+   "total_us": 70.0
+  },
+  {
+   "name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel__5x_cublas",
+   "count": 2709,
+   "total_us": 33833.0
+  },
+  {
+   "name": "void vllm::rotary_embedding_kernel<c10::Half, true>(long const*, c10::Half*, c10::Half*, c10::Half const*, int, long, long, int, int, int)",
+   "count": 672,
+   "total_us": 1344.0
+  },
+  {
+   "name": "void vllm::reshape_and_cache_flash_kernel<c10::Half>(c10::Half const*, c10::Half const*, c10::Half*, c10::Half*, long const*, int, int, int, int, int, int)",
+   "count": 672,
+   "total_us": 693.0
+  },
+  {
+   "name": "void flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, false, false, false, false, true, true, false>(Flash_fwd_params)",
+   "count": 672,
+   "total_us": 4704.0
+  },
+  {
+   "name": "void flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<128, 64, 128, 4, false, false, cutlass::half_t, Flash_kernel_traits<128, 64, 128, 4, cutlass::half_t> >, 4, 5, true>(Flash_fwd_params)",
+   "count": 672,
+   "total_us": 5376.0
+  },
+  {
+   "name": "memcpy32_post",
+   "count": 672,
+   "total_us": 20.0
+  },
+  {
+   "name": "std::enable_if<(((8)>(0)))&&vllm::_typeConvert<c10::Half>::exists, void>::type vllm::fused_add_rms_norm_kernel<c10::Half, 8>(c10::Half*, c10::Half*, c10::Half const*, float, int, int)",
+   "count": 1344,
+   "total_us": 2688.0
+  },
+  {
+   "name": "void vllm::act_and_mul_kernel<c10::Half, &(c10::Half vllm::silu_kernel<c10::Half>(c10::Half const&))>(c10::Half*, c10::Half const*, int)",
+   "count": 672,
+   "total_us": 1194.0
+  },
+  {
+   "name": "ncclDevKernel_SendRecv(ncclDevComm*, unsigned long, ncclWork*)",
+   "count": 21,
+   "total_us": 144.0
+  },
+  {
+   "name": "ncclDevKernel_Broadcast_RING_LL(ncclDevComm*, unsigned long, ncclWork*)",
+   "count": 180,
+   "total_us": 1392.0
+  }
+ ]
+}
