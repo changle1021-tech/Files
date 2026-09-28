@@ -1,2 +1,0 @@
-,time_stats.all_to_all.min,time_stats.all_to_all.max,time_stats.all_to_all.mean,time_stats.all_to_all.median,time_stats.all_to_all.std,rank,num_workers,size,collective,devices_per_node,max_devices_per_node
-0,0.005,0.037,0.015666666666666666,0.005,0.015084944665313012,0,2,2048,all_to_all,2,4

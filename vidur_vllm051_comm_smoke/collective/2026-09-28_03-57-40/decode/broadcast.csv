@@ -1,2 +1,0 @@
-,time_stats.broadcast.min,time_stats.broadcast.max,time_stats.broadcast.mean,time_stats.broadcast.median,time_stats.broadcast.std,rank,num_workers,size,collective,devices_per_node,max_devices_per_node
-0,0.002,0.003,0.0023333333333333335,0.002,0.0004714045207910317,0,2,2048,broadcast,2,4

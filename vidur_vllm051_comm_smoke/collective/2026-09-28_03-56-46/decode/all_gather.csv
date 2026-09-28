@@ -1,2 +1,0 @@
-,time_stats.all_gather.min,time_stats.all_gather.max,time_stats.all_gather.mean,time_stats.all_gather.median,time_stats.all_gather.std,rank,num_workers,size,collective,devices_per_node,max_devices_per_node
-0,0.003,0.016,0.007666666666666666,0.004,0.0059066817155564505,0,2,2048,all_gather,2,4
