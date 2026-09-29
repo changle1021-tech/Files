@@ -1,0 +1,21 @@
+[
+  "/usr/bin/python3",
+  "-u",
+  "/root/changle/Files/analysis/tp_gap_20260928/entry_event/vllm_051_decode_probe.py",
+  "--model",
+  "/tmp/codex_llama7b_graph_probe_model_20260928",
+  "--tp",
+  "4",
+  "--prompt-tokens",
+  "3072",
+  "--decode-tokens",
+  "50",
+  "--warmup-requests",
+  "3",
+  "--baseline-requests",
+  "10",
+  "--gpu-memory-utilization",
+  "0.3",
+  "--output-dir",
+  "/root/changle/Files/analysis/tp_gap_20260928/entry_event"
+]

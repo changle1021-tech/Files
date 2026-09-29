@@ -1,0 +1,94 @@
+{
+  "config": {
+    "tp": 4,
+    "prompt": 3072,
+    "decode": 50,
+    "interval_s": 10,
+    "warmup_requests": 3,
+    "requests": 8,
+    "max_num_seqs": 128,
+    "gpu_memory_utilization": 0.8,
+    "executor": "ray",
+    "cuda_graph": true,
+    "capture_length": 4096,
+    "custom_all_reduce": false
+  },
+  "warmup": [
+    {
+      "ttft_ms": 84.672168,
+      "tpot_ms": 8.467713428571429,
+      "e2e_ms": 499.590126,
+      "text_chunks": 50
+    },
+    {
+      "ttft_ms": 59.760425,
+      "tpot_ms": 8.226215530612246,
+      "e2e_ms": 462.844986,
+      "text_chunks": 50
+    },
+    {
+      "ttft_ms": 59.247106,
+      "tpot_ms": 8.721427612244899,
+      "e2e_ms": 486.597059,
+      "text_chunks": 50
+    }
+  ],
+  "requests": [
+    {
+      "ttft_ms": 59.347598,
+      "tpot_ms": 8.952835897959185,
+      "e2e_ms": 498.036557,
+      "text_chunks": 50,
+      "request_index": 0
+    },
+    {
+      "ttft_ms": 51.702099,
+      "tpot_ms": 6.976598693877551,
+      "e2e_ms": 393.555435,
+      "text_chunks": 50,
+      "request_index": 1
+    },
+    {
+      "ttft_ms": 50.240124,
+      "tpot_ms": 6.554007285714286,
+      "e2e_ms": 371.386481,
+      "text_chunks": 50,
+      "request_index": 2
+    },
+    {
+      "ttft_ms": 50.789812,
+      "tpot_ms": 6.642934387755102,
+      "e2e_ms": 376.293597,
+      "text_chunks": 50,
+      "request_index": 3
+    },
+    {
+      "ttft_ms": 51.800171,
+      "tpot_ms": 6.796596979591837,
+      "e2e_ms": 384.833423,
+      "text_chunks": 50,
+      "request_index": 4
+    },
+    {
+      "ttft_ms": 60.221457,
+      "tpot_ms": 8.415369224489796,
+      "e2e_ms": 472.574549,
+      "text_chunks": 50,
+      "request_index": 5
+    },
+    {
+      "ttft_ms": 50.444568,
+      "tpot_ms": 6.779085387755102,
+      "e2e_ms": 382.619752,
+      "text_chunks": 50,
+      "request_index": 6
+    },
+    {
+      "ttft_ms": 50.668126,
+      "tpot_ms": 6.78449781632653,
+      "e2e_ms": 383.108519,
+      "text_chunks": 50,
+      "request_index": 7
+    }
+  ]
+}

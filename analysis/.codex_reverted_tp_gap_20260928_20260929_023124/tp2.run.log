@@ -1,0 +1,38 @@
+2026-09-28 11:09:42,968	INFO worker.py:1771 -- Started a local Ray instance.
+2026-09-28 11:09:43,369	INFO worker.py:1604 -- Calling ray.init() again after it has already been called.
+INFO 09-28 11:09:43 llm_engine.py:169] Initializing an LLM engine (v0.5.1) with config: model='/tmp/codex_llama7b_graph_probe_model_20260928', speculative_config=None, tokenizer='/tmp/codex_llama7b_graph_probe_model_20260928', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=2, pipeline_parallel_size=1, disable_custom_all_reduce=True, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None), seed=36, served_model_name=/tmp/codex_llama7b_graph_probe_model_20260928, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 09-28 11:09:48 utils.py:741] Found nccl from library libnccl.so.2
+INFO 09-28 11:09:48 pynccl.py:63] vLLM is using nccl==2.20.5
+[36m(DiagnosticRayWrapper pid=71551)[0m INFO 09-28 11:09:48 utils.py:741] Found nccl from library libnccl.so.2
+[36m(DiagnosticRayWrapper pid=71551)[0m INFO 09-28 11:09:48 pynccl.py:63] vLLM is using nccl==2.20.5
+INFO 09-28 11:09:51 model_runner.py:255] Loading model weights took 6.3101 GB
+[36m(DiagnosticRayWrapper pid=71551)[0m INFO 09-28 11:09:52 model_runner.py:255] Loading model weights took 6.3101 GB
+INFO 09-28 11:09:52 distributed_gpu_executor.py:56] # GPU blocks: 3922, # CPU blocks: 1024
+[36m(DiagnosticRayWrapper pid=71551)[0m INFO 09-28 11:09:54 model_runner.py:924] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+[36m(DiagnosticRayWrapper pid=71551)[0m INFO 09-28 11:09:54 model_runner.py:928] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 09-28 11:09:54 model_runner.py:924] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 09-28 11:09:54 model_runner.py:928] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 09-28 11:09:55 model_runner.py:1117] Graph capturing finished in 1 secs.
+[36m(DiagnosticRayWrapper pid=71551)[0m INFO 09-28 11:09:55 model_runner.py:1117] Graph capturing finished in 1 secs.
+baseline_before {"mean": 6.436015820408163, "median": 6.397332, "min": 6.268979, "max": 7.431862, "n": 245}
+events {"mean": 6.560983379591836, "median": 6.515987, "min": 6.395219, "max": 7.655319, "n": 245}
+STAGE:2026-09-28 11:10:00 70698:70698 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+[36m(DiagnosticRayWrapper pid=71551)[0m STAGE:2026-09-28 11:10:00 71551:71551 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+STAGE:2026-09-28 11:10:00 70698:70698 ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2026-09-28 11:10:00 70698:70698 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+[36m(DiagnosticRayWrapper pid=71551)[0m STAGE:2026-09-28 11:10:00 71551:71551 ActivityProfilerController.cpp:320] Completed Stage: Collection
+[36m(DiagnosticRayWrapper pid=71551)[0m STAGE:2026-09-28 11:10:00 71551:71551 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+trace {"mean": 7.92119787755102, "median": 6.958593, "min": 6.872797, "max": 48.838109, "n": 49}
+baseline_after {"mean": 6.769063591836734, "median": 6.728662, "min": 6.588194, "max": 9.324866, "n": 245}
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/root/changle/Files/analysis/tp_gap_20260928/vllm_051_decode_probe.py", line 218, in <module>
+[rank0]:     main()
+[rank0]:   File "/root/changle/Files/analysis/tp_gap_20260928/vllm_051_decode_probe.py", line 204, in main
+[rank0]:     report["trace_analysis"] = [analyze(prefix + f"_rank{r}.trace.json", r, n)
+[rank0]:   File "/root/changle/Files/analysis/tp_gap_20260928/vllm_051_decode_probe.py", line 204, in <listcomp>
+[rank0]:     report["trace_analysis"] = [analyze(prefix + f"_rank{r}.trace.json", r, n)
+[rank0]:   File "/root/changle/Files/analysis/tp_gap_20260928/vllm_051_decode_trace.py", line 90, in analyze
+[rank0]:     raise RuntimeError(f"rank {rank}: expected {expected_steps * width} markers, "
+[rank0]: RuntimeError: rank 0: expected 196 markers, got 0; cannot safely assign stages
+/usr/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
