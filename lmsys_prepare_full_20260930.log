@@ -1,0 +1,111 @@
+Local Parquet files: 6; conversations: 1,000,000
+Reading train-00000-of-00006-4feeb3f83346a0e9.parquet
+Examined=10,240/1,000,000; saved=10,227; invalid=13; above_context_limit=0
+Examined=20,480/1,000,000; saved=20,452; invalid=27; above_context_limit=1
+Examined=30,208/1,000,000; saved=30,170; invalid=37; above_context_limit=1
+Examined=40,448/1,000,000; saved=40,395; invalid=52; above_context_limit=1
+Examined=50,176/1,000,000; saved=50,110; invalid=65; above_context_limit=1
+Examined=60,416/1,000,000; saved=60,337; invalid=78; above_context_limit=1
+Examined=70,144/1,000,000; saved=70,051; invalid=92; above_context_limit=1
+Examined=80,384/1,000,000; saved=80,274; invalid=108; above_context_limit=2
+Examined=90,112/1,000,000; saved=89,982; invalid=127; above_context_limit=3
+Examined=100,352/1,000,000; saved=100,209; invalid=140; above_context_limit=3
+Examined=110,080/1,000,000; saved=109,927; invalid=149; above_context_limit=4
+Examined=120,320/1,000,000; saved=120,154; invalid=161; above_context_limit=5
+Examined=130,048/1,000,000; saved=129,859; invalid=183; above_context_limit=6
+Examined=140,288/1,000,000; saved=140,087; invalid=195; above_context_limit=6
+Examined=150,016/1,000,000; saved=149,802; invalid=207; above_context_limit=7
+Examined=160,256/1,000,000; saved=160,029; invalid=218; above_context_limit=9
+Reading train-00001-of-00006-4030672591c2f478.parquet
+Examined=170,251/1,000,000; saved=170,018; invalid=224; above_context_limit=9
+Examined=180,491/1,000,000; saved=180,246; invalid=236; above_context_limit=9
+Examined=190,219/1,000,000; saved=189,961; invalid=248; above_context_limit=10
+Examined=200,459/1,000,000; saved=200,187; invalid=262; above_context_limit=10
+Examined=210,187/1,000,000; saved=209,902; invalid=275; above_context_limit=10
+Examined=220,427/1,000,000; saved=220,135; invalid=282; above_context_limit=10
+Examined=230,155/1,000,000; saved=229,847; invalid=296; above_context_limit=12
+Examined=240,395/1,000,000; saved=240,069; invalid=314; above_context_limit=12
+Examined=250,123/1,000,000; saved=249,784; invalid=327; above_context_limit=12
+Examined=260,363/1,000,000; saved=260,012; invalid=339; above_context_limit=12
+Examined=270,091/1,000,000; saved=269,726; invalid=353; above_context_limit=12
+Examined=280,331/1,000,000; saved=279,948; invalid=370; above_context_limit=13
+Examined=290,059/1,000,000; saved=289,660; invalid=384; above_context_limit=15
+Examined=300,299/1,000,000; saved=299,890; invalid=394; above_context_limit=15
+Examined=310,027/1,000,000; saved=309,607; invalid=405; above_context_limit=15
+Examined=320,267/1,000,000; saved=319,831; invalid=420; above_context_limit=16
+Examined=330,507/1,000,000; saved=330,057; invalid=433; above_context_limit=17
+Reading train-00002-of-00006-1779b7cec9462180.parquet
+Examined=340,502/1,000,000; saved=340,040; invalid=445; above_context_limit=17
+Examined=350,230/1,000,000; saved=349,752; invalid=461; above_context_limit=17
+Examined=360,470/1,000,000; saved=359,982; invalid=469; above_context_limit=19
+Examined=370,198/1,000,000; saved=369,697; invalid=482; above_context_limit=19
+Examined=380,438/1,000,000; saved=379,916; invalid=501; above_context_limit=21
+Examined=390,166/1,000,000; saved=389,630; invalid=515; above_context_limit=21
+Examined=400,406/1,000,000; saved=399,852; invalid=532; above_context_limit=22
+Examined=410,134/1,000,000; saved=409,561; invalid=551; above_context_limit=22
+Examined=420,374/1,000,000; saved=419,793; invalid=559; above_context_limit=22
+Examined=430,102/1,000,000; saved=429,504; invalid=575; above_context_limit=23
+Examined=440,342/1,000,000; saved=439,728; invalid=590; above_context_limit=24
+Examined=450,070/1,000,000; saved=449,444; invalid=602; above_context_limit=24
+Examined=460,310/1,000,000; saved=459,669; invalid=617; above_context_limit=24
+Examined=470,038/1,000,000; saved=469,387; invalid=627; above_context_limit=24
+Examined=480,278/1,000,000; saved=479,616; invalid=638; above_context_limit=24
+Examined=490,006/1,000,000; saved=489,328; invalid=654; above_context_limit=24
+Examined=500,001/1,000,000; saved=499,306; invalid=671; above_context_limit=24
+Reading train-00003-of-00006-2fa862bfed56af1f.parquet
+Examined=510,241/1,000,000; saved=509,526; invalid=691; above_context_limit=24
+Examined=520,481/1,000,000; saved=519,753; invalid=704; above_context_limit=24
+Examined=530,209/1,000,000; saved=529,467; invalid=718; above_context_limit=24
+Examined=540,449/1,000,000; saved=539,694; invalid=731; above_context_limit=24
+Examined=550,177/1,000,000; saved=549,405; invalid=748; above_context_limit=24
+Examined=560,417/1,000,000; saved=559,632; invalid=761; above_context_limit=24
+Examined=570,145/1,000,000; saved=569,349; invalid=770; above_context_limit=26
+Examined=580,385/1,000,000; saved=579,574; invalid=785; above_context_limit=26
+Examined=590,113/1,000,000; saved=589,294; invalid=793; above_context_limit=26
+Examined=600,353/1,000,000; saved=599,516; invalid=810; above_context_limit=27
+Examined=610,081/1,000,000; saved=609,232; invalid=822; above_context_limit=27
+Examined=620,321/1,000,000; saved=619,461; invalid=833; above_context_limit=27
+Examined=630,049/1,000,000; saved=629,178; invalid=844; above_context_limit=27
+Examined=640,289/1,000,000; saved=639,405; invalid=857; above_context_limit=27
+Examined=650,017/1,000,000; saved=649,125; invalid=865; above_context_limit=27
+Examined=660,257/1,000,000; saved=659,349; invalid=879; above_context_limit=29
+Reading train-00004-of-00006-18f4bdd50c103e71.parquet
+Examined=670,252/1,000,000; saved=669,330; invalid=893; above_context_limit=29
+Examined=680,492/1,000,000; saved=679,558; invalid=905; above_context_limit=29
+Examined=690,220/1,000,000; saved=689,273; invalid=917; above_context_limit=30
+Examined=700,460/1,000,000; saved=699,495; invalid=935; above_context_limit=30
+Examined=710,188/1,000,000; saved=709,207; invalid=951; above_context_limit=30
+Examined=720,428/1,000,000; saved=719,435; invalid=963; above_context_limit=30
+Examined=730,156/1,000,000; saved=729,152; invalid=973; above_context_limit=31
+Examined=740,396/1,000,000; saved=739,377; invalid=987; above_context_limit=32
+Examined=750,124/1,000,000; saved=749,089; invalid=1,002; above_context_limit=33
+Examined=760,364/1,000,000; saved=759,315; invalid=1,016; above_context_limit=33
+Examined=770,092/1,000,000; saved=769,030; invalid=1,028; above_context_limit=34
+Examined=780,332/1,000,000; saved=779,256; invalid=1,042; above_context_limit=34
+Examined=790,060/1,000,000; saved=788,970; invalid=1,056; above_context_limit=34
+Examined=800,300/1,000,000; saved=799,192; invalid=1,074; above_context_limit=34
+Examined=810,028/1,000,000; saved=808,905; invalid=1,089; above_context_limit=34
+Examined=820,268/1,000,000; saved=819,130; invalid=1,103; above_context_limit=35
+Examined=830,508/1,000,000; saved=829,357; invalid=1,116; above_context_limit=35
+Reading train-00005-of-00006-fe1acc5d10a9f0e2.parquet
+Examined=840,502/1,000,000; saved=839,337; invalid=1,130; above_context_limit=35
+Examined=850,230/1,000,000; saved=849,050; invalid=1,143; above_context_limit=37
+Examined=860,470/1,000,000; saved=859,275; invalid=1,158; above_context_limit=37
+Examined=870,198/1,000,000; saved=868,984; invalid=1,176; above_context_limit=38
+Examined=880,438/1,000,000; saved=879,212; invalid=1,188; above_context_limit=38
+Examined=890,166/1,000,000; saved=888,928; invalid=1,200; above_context_limit=38
+Examined=900,406/1,000,000; saved=899,153; invalid=1,214; above_context_limit=39
+Examined=910,134/1,000,000; saved=908,869; invalid=1,226; above_context_limit=39
+Examined=920,374/1,000,000; saved=919,092; invalid=1,243; above_context_limit=39
+Examined=930,102/1,000,000; saved=928,801; invalid=1,261; above_context_limit=40
+Examined=940,342/1,000,000; saved=939,030; invalid=1,272; above_context_limit=40
+Examined=950,070/1,000,000; saved=948,745; invalid=1,285; above_context_limit=40
+Examined=960,310/1,000,000; saved=958,969; invalid=1,301; above_context_limit=40
+Examined=970,038/1,000,000; saved=968,685; invalid=1,313; above_context_limit=40
+Examined=980,278/1,000,000; saved=978,920; invalid=1,318; above_context_limit=40
+Examined=990,006/1,000,000; saved=988,635; invalid=1,331; above_context_limit=40
+Examined=1,000,000/1,000,000; saved=998,619; invalid=1,341; above_context_limit=40
+Saved all 998,619 eligible requests to /root/changle/Files/lmsys_lengths.csv
+Prefill lengths: {"count": 998619, "ge_1024": 2509, "ge_2048": 129, "ge_3072": 16, "ge_512": 36052, "max": 4011, "min": 2, "p50": 28, "p90": 303, "p99": 752}
+Decode lengths: {"count": 998619, "ge_1024": 1506, "ge_2048": 99, "ge_3072": 14, "ge_512": 98446, "max": 4067, "min": 1, "p50": 138, "p90": 511, "p99": 844}
+No request-count limit or source-model filter was applied.
